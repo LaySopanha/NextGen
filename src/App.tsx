@@ -20,6 +20,8 @@ import NotFound from "./pages/NotFound";
 import MapSearch from "./pages/MapSearch";
 import OwnerDashboard from "./pages/OwnerDashboard";
 import Checkout from "./pages/Checkout";
+import Offers from "./pages/Offers";
+import OfferDetails from "./pages/OfferDetails";
 
 
 const queryClient = new QueryClient();
@@ -47,6 +49,8 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/map-search" element={<MapSearch />} />
               <Route path="/checkout/:hotelId" element={<Checkout />} />
+              <Route path="/offers" element={<Offers />} />
+              <Route path="/offers/:slug" element={<OfferDetails />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
