@@ -45,40 +45,42 @@ const DEFAULT_CENTER: [number, number] = [13.3633, 103.8564]; // Siem Reap defau
 
 // Controller for Map Interactions (Zoom/Pan)
 const MapController = ({
-    hoveredHotel,
+    selectedHotel,
     mapCenter,
     baseZoom = 13,
-    hoverZoom = 18
+    selectedZoom = 16
 }: {
-    hoveredHotel: any,
+    selectedHotel: any,
     mapCenter: [number, number],
     baseZoom?: number,
-    hoverZoom?: number
+    selectedZoom?: number
 }) => {
     const map = useMap();
 
-    // 1. Handle Hover Interactions
+    // 1. Handle Selection Interactions (Click)
     useEffect(() => {
-        if (hoveredHotel) {
-            // Zoom IN to the hotel
+        if (selectedHotel) {
+            // Fly to the selected hotel and zoom in
             map.flyTo(
-                [hoveredHotel.coordinates.lat, hoveredHotel.coordinates.lng],
-                hoverZoom,
-                { animate: true, duration: 1.2 }
+                [selectedHotel.coordinates.lat, selectedHotel.coordinates.lng],
+                selectedZoom,
+                { animate: true, duration: 1.0 }
             );
-        } else {
-            // Zoom OUT on un-hover (but stay relative to where we were looking, don't force reset to city center yet)
-            // We use map.getCenter() to keep context of where the user was looking.
-            // Only 'mapCenter' prop change enforces a hard city reset.
-            map.flyTo(map.getCenter(), baseZoom, { animate: true, duration: 1.2 });
         }
-    }, [hoveredHotel, map, baseZoom, hoverZoom]);
+    }, [selectedHotel, map, selectedZoom]);
 
-    // 2. Handle City/Search Changes (The Fix)
+    // 2. Handle City/Search Changes
     useEffect(() => {
-        // When the Global 'mapCenter' changes (user searched a new place), fly there.
-        map.flyTo(mapCenter, baseZoom, { animate: true, duration: 2.0 });
-    }, [mapCenter, map, baseZoom]);
+        if (!selectedHotel) {
+            map.flyTo(mapCenter, baseZoom, { animate: true, duration: 1.5 });
+        }
+    }, [mapCenter, map, baseZoom, selectedHotel]);
+
+    // 3. Handle Map Clicks to Deselect
+    useEffect(() => {
+        // This is handled by the MapContainer click handler in the parent, 
+        // but we could add specific map logic here if needed.
+    }, []);
 
     return null;
 };
@@ -86,43 +88,43 @@ const MapController = ({
 // Sub-component for individual markers
 const HotelMarker = ({
     hotel,
+    isSelected,
     isHovered,
-    setHoveredHotelId
+    onSelect,
+    onHover
 }: {
     hotel: any,
+    isSelected: boolean,
     isHovered: boolean,
-    setHoveredHotelId: (id: string | null) => void
+    onSelect: (id: string | null) => void,
+    onHover: (id: string | null) => void
 }) => {
     const markerRef = useRef<L.Marker>(null);
-    const { formatPrice } = useCurrency(); // Hook
 
-    // Sync popup state only (Movement handled by MapController now)
+    // Programmatically open/close popup based on SELECTION (not hover)
     useEffect(() => {
         if (markerRef.current) {
-            if (isHovered) {
+            if (isSelected) {
                 markerRef.current.openPopup();
             } else {
                 markerRef.current.closePopup();
             }
         }
-    }, [isHovered]);
+    }, [isSelected]);
 
     return (
         <Marker
             ref={markerRef}
             position={[hotel.coordinates.lat, hotel.coordinates.lng]}
-            icon={createCustomIcon(hotel.price, isHovered)}
+            // Highlight if hovered OR selected
+            icon={createCustomIcon(hotel.price, isHovered || isSelected)}
             eventHandlers={{
-                mouseover: (e) => {
-                    setHoveredHotelId(hotel.id);
-                    e.target.openPopup();
-                },
-                mouseout: (e) => {
-                    setHoveredHotelId(null);
-                    e.target.closePopup();
-                },
+                mouseover: () => onHover(hotel.id),
+                mouseout: () => onHover(null),
                 click: (e) => {
-                    // navigate
+                    // Stop propagation so map click doesn't immediately deselect
+                    L.DomEvent.stopPropagation(e.originalEvent);
+                    onSelect(hotel.id);
                 }
             }}
         >
@@ -168,7 +170,19 @@ const HotelMarker = ({
                     {/* CONTENT */}
                     <div className="flex-1 p-3 flex flex-col justify-between min-w-0 bg-white">
                         <div>
-                            <h3 className="font-bold text-sm leading-tight mb-1 truncate text-foreground pr-4">{hotel.name}</h3>
+                            <div className="flex justify-between items-start">
+                                <h3 className="font-bold text-sm leading-tight mb-1 truncate text-foreground pr-4">{hotel.name}</h3>
+                                <button
+                                    className="p-1 hover:bg-slate-100 rounded-full text-slate-400 hover:text-slate-600"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onSelect(null);
+                                    }}
+                                >
+                                    <span className="sr-only">Close</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                                </button>
+                            </div>
                             <p className="text-[11px] text-muted-foreground mb-2 truncate flex items-center gap-1">
                                 <MapPin className="w-3 h-3 text-primary shrink-0" />
                                 {hotel.location}
@@ -217,8 +231,8 @@ const HotelMarker = ({
 };
 
 // Specialized Hotel Card for Map Sidebar (Compact but premium)
-const SidebarHotelCard = ({ hotel }: { hotel: any }) => (
-    <div className="flex min-h-[210px] w-full bg-card rounded-xl border border-border/50 shadow-sm hover:shadow-lg transition-all overflow-hidden group">
+const SidebarHotelCard = ({ hotel, isSelected }: { hotel: any, isSelected: boolean }) => (
+    <div className={`flex min-h-[210px] w-full bg-card rounded-xl border shadow-sm hover:shadow-lg transition-all overflow-hidden group ${isSelected ? 'border-primary ring-1 ring-primary' : 'border-border/50'}`}>
         {/* Left: Image */}
         <div className="w-[180px] shrink-0 relative">
             <img
@@ -310,7 +324,11 @@ const MapSearch = () => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const locationQuery = searchParams.get('location') || 'Siem Reap';
+    // Split State: 
+    // 1. hoveredHotelId = Visual highlight only
+    // 2. selectedHotelId = Persistent selection (zooms in, opens popup)
     const [hoveredHotelId, setHoveredHotelId] = useState<string | null>(null);
+    const [selectedHotelId, setSelectedHotelId] = useState<string | null>(null);
     const [searchInput, setSearchInput] = useState(locationQuery);
 
     // Filters State
@@ -326,6 +344,7 @@ const MapSearch = () => {
         paymentTypes: [] as string[],
     });
 
+    // ... (rest of generic state)
     // State for Search Suggestions
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -358,6 +377,8 @@ const MapSearch = () => {
     useEffect(() => {
         setFilters(prev => ({ ...prev, province: locationQuery }));
         setSearchInput(locationQuery);
+        // Reset selection on location change
+        setSelectedHotelId(null);
     }, [locationQuery]);
 
     const handleSearchSubmit = (e: React.FormEvent) => {
@@ -372,48 +393,33 @@ const MapSearch = () => {
         setShowSuggestions(false);
     };
 
+    // ... (filtering logic same as before)
     const filteredHotels = useMemo(() => {
         let results = searchHotels(locationQuery);
 
-        // Apply price filter
+        // Apply filters (price, stars, etc)
         results = results.filter(hotel =>
             hotel.price >= filters.priceRange[0] && hotel.price <= filters.priceRange[1]
         );
-
-        // Apply stars filter
-        if (filters.stars.length > 0) {
-            results = results.filter(hotel => filters.stars.includes(hotel.stars));
-        }
-
-        // Apply property type
-        if (filters.propertyTypes.length > 0) {
-            results = results.filter(hotel => filters.propertyTypes.includes(hotel.propertyType));
-        }
-
-        // Apply guest rating filter
-        if (filters.guestRating !== null) {
-            results = results.filter(hotel => hotel.rating >= filters.guestRating!);
-        }
+        if (filters.stars.length > 0) results = results.filter(hotel => filters.stars.includes(hotel.stars));
+        if (filters.propertyTypes.length > 0) results = results.filter(hotel => filters.propertyTypes.includes(hotel.propertyType));
+        if (filters.guestRating !== null) results = results.filter(hotel => hotel.rating >= filters.guestRating!);
 
         // Apply sorting
         results.sort((a, b) => {
-            if (filters.sortBy === 'price-low') {
-                return a.price - b.price;
-            } else if (filters.sortBy === 'price-high') {
-                return b.price - a.price;
-            } else if (filters.sortBy === 'rating-high') {
-                return b.rating - a.rating;
-            }
+            if (filters.sortBy === 'price-low') return a.price - b.price;
+            else if (filters.sortBy === 'price-high') return b.price - a.price;
+            else if (filters.sortBy === 'rating-high') return b.rating - a.rating;
             return 0;
         });
 
         return results;
     }, [locationQuery, filters]);
 
-    // Derived state for the currently hovered hotel data
-    const hoveredHotel = useMemo(() => {
-        return filteredHotels.find(h => h.id === hoveredHotelId);
-    }, [hoveredHotelId, filteredHotels]);
+    // Derived state for the currently SELECTED hotel (not just hovered)
+    const selectedHotel = useMemo(() => {
+        return filteredHotels.find(h => h.id === selectedHotelId);
+    }, [selectedHotelId, filteredHotels]);
 
     // Determine Map Center based on query
     const mapCenter = useMemo(() => {
@@ -422,20 +428,23 @@ const MapSearch = () => {
         return match ? PROVINCE_COORDINATES[match] : DEFAULT_CENTER;
     }, [locationQuery]);
 
+    // Global Map Click Handler to Deselect
+    const handleMapClick = () => {
+        setSelectedHotelId(null);
+    };
+
     return (
         <div className="h-screen w-screen flex flex-col bg-background overflow-hidden font-sans text-foreground">
-            {/* BRANDING HEADER + SEARCH */}
+            {/* BRANDING HEADER + SEARCH (Same as before) */}
             <header className="flex-none h-16 bg-primary text-white flex items-center justify-between px-4 shadow-md z-50">
                 <div className="flex items-center gap-6">
-                    {/* Logo Area */}
                     <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
                         <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                             <MapPin className="w-5 h-5 text-primary" />
                         </div>
                         <span className="text-xl font-bold text-white hidden md:block">NextGen</span>
                     </div>
-
-                    {/* Compact Search Bar with Suggestions */}
+                    {/* Search Bar ... */}
                     <div className="relative group" ref={searchContainerRef}>
                         <form onSubmit={handleSearchSubmit}>
                             <div className="flex items-center bg-white/10 hover:bg-white/20 transition-colors rounded-lg border border-white/20 overflow-hidden w-[200px] md:w-[320px] focus-within:ring-2 focus-within:ring-white/50 focus-within:bg-white/20">
@@ -458,8 +467,7 @@ const MapSearch = () => {
                                 )}
                             </div>
                         </form>
-
-                        {/* Suggestions Dropdown */}
+                        {/* Suggestions ... */}
                         {showSuggestions && suggestions.length > 0 && (
                             <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-border overflow-hidden py-1 z-[60]">
                                 {suggestions.map((province) => (
@@ -481,15 +489,13 @@ const MapSearch = () => {
                         )}
                     </div>
                 </div>
-
-                {/* Right Actions */}
                 <div className="flex items-center gap-3">
                     <Button variant="ghost" className="text-white hover:bg-white/10 hidden md:flex" onClick={() => navigate('/')}>Home</Button>
                     <div className="h-5 w-px bg-white/20 hidden md:block"></div>
                 </div>
             </header>
 
-            {/* Quick Filters Bar */}
+            {/* Quick Filters Bar (Same) */}
             <div className="flex-none h-12 border-b border-border bg-card px-4 flex items-center gap-3 z-40 shadow-sm overflow-x-auto no-scrollbar">
                 <Sheet>
                     <SheetTrigger asChild>
@@ -535,13 +541,8 @@ const MapSearch = () => {
 
             {/* Split Content Area */}
             <div className="flex-1 flex overflow-hidden relative h-[calc(100vh-7rem)] min-h-0">
-
-                {/* Left Sidebar: Hotel List 
-                    Fixed width of 540px. 
-                */}
+                {/* Left Sidebar: Hotel List */}
                 <div className="hidden md:flex w-[540px] min-w-[540px] flex-col border-r border-border bg-muted/20 z-20 shadow-xl relative transition-all h-full min-h-0">
-
-                    {/* Sticky Sidebar Header */}
                     <div className="p-3 bg-background/95 backdrop-blur-sm border-b border-border flex items-center justify-between z-30 flex-none px-4">
                         <div className="text-sm font-semibold text-foreground">
                             {filteredHotels.length} properties found
@@ -560,7 +561,6 @@ const MapSearch = () => {
                         </div>
                     </div>
 
-                    {/* ScrollArea takes remaining space (flex-1) instead of h-full */}
                     <div className="flex-1 w-full min-h-0 overflow-y-auto">
                         <div className="p-4 space-y-4 pb-8">
                             {filteredHotels.map(hotel => (
@@ -568,10 +568,11 @@ const MapSearch = () => {
                                     key={hotel.id}
                                     onMouseEnter={() => setHoveredHotelId(hotel.id)}
                                     onMouseLeave={() => setHoveredHotelId(null)}
-                                    className={`transition-all duration-300 cursor-pointer ${hoveredHotelId === hotel.id ? 'translate-x-2' : ''}`}
-                                    onClick={() => navigate(`/hotel/${hotel.id}`)}
+                                    className="transition-all duration-300 cursor-pointer"
+                                    onClick={() => setSelectedHotelId(hotel.id)}
                                 >
-                                    <SidebarHotelCard hotel={hotel} />
+                                    {/* Scroll interaction now only selects the hotel, doesn't navigate instantly */}
+                                    <SidebarHotelCard hotel={hotel} isSelected={selectedHotelId === hotel.id} />
                                 </div>
                             ))}
                             {filteredHotels.length === 0 && (
@@ -589,13 +590,22 @@ const MapSearch = () => {
 
                 {/* Right Area: Full Screen Map */}
                 <div className="flex-1 relative bg-gray-100 min-w-0">
+                    {/* Map Container click handler via a transparent overlay or specific logic if needed, 
+                         but for now rely on map event (not directly exposed easily on MapContainer without a child component).
+                         We will use a generic overlay div or leverage Leaflet's map event in Controller if strict bg click needed.
+                         Simplest way: wrap MapContainer in a div that catches clicks? No, map captures them.
+                         Better: useMapEvents inside Controller.
+                      */}
                     <MapContainer
                         center={mapCenter}
                         zoom={13}
                         style={{ height: '100%', width: '100%' }}
                         zoomControl={false}
                     >
-                        <MapController hoveredHotel={hoveredHotel} mapCenter={mapCenter} baseZoom={13} hoverZoom={18} />
+                        {/* We need a click handler on the map to deselect. */}
+                        <MapClickHandler onMapClick={handleMapClick} />
+
+                        <MapController selectedHotel={selectedHotel} mapCenter={mapCenter} baseZoom={13} selectedZoom={16} />
                         <TileLayer
                             attribution='&copy; OpenStreetMap'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -617,8 +627,10 @@ const MapSearch = () => {
                             <HotelMarker
                                 key={hotel.id}
                                 hotel={hotel}
+                                isSelected={selectedHotelId === hotel.id}
                                 isHovered={hoveredHotelId === hotel.id}
-                                setHoveredHotelId={setHoveredHotelId}
+                                onSelect={setSelectedHotelId}
+                                onHover={setHoveredHotelId}
                             />
                         ))}
                     </MapContainer>
@@ -627,5 +639,17 @@ const MapSearch = () => {
         </div>
     );
 }
+
+// Simple component to handle map background clicks
+const MapClickHandler = ({ onMapClick }: { onMapClick: () => void }) => {
+    const map = useMap();
+    useEffect(() => {
+        map.on('click', onMapClick);
+        return () => {
+            map.off('click', onMapClick);
+        };
+    }, [map, onMapClick]);
+    return null;
+};
 
 export default MapSearch;

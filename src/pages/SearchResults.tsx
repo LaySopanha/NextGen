@@ -178,8 +178,8 @@ const SearchResults = () => {
             className="min-w-0 h-full overflow-y-auto no-scrollbar py-6 pl-2"
           >
             {/* Results Header */}
-            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div>
+            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:flex-wrap md:gap-4">
+              <div className="min-w-0">
                 <h1 className="text-2xl font-bold text-foreground">
                   {filters.province || locationQuery
                     ? `Hotels in ${filters.province || locationQuery}`
@@ -191,7 +191,7 @@ const SearchResults = () => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-wrap justify-end">
                 {/* Mobile Filter Button */}
                 <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
                   <SheetTrigger asChild>
