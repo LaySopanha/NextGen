@@ -191,163 +191,169 @@ const SearchResults = () => {
 
               <div className="flex items-center gap-3">
                 {/* Mobile Filter Button */}
-                <Sheet>
-                  <SheetTrigger asChild>
-                    <Button variant="outline" className="gap-2 lg:hidden">
-                      <SlidersHorizontal className="h-4 w-4" />
-                      Filters
-                      {hasActiveFilters && (
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
-                          !
-                        </span>
-                      )}
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="left" className="w-full max-w-sm p-0">
-                    <div className="h-full overflow-y-auto p-6">
-                      <FilterSidebar
-                        onFiltersChange={setFilters}
-                        onClose={() => { }}
-                        isMobile
-                        initialProvince={locationQuery}
-                      />
-                    </div>
-                  </SheetContent>
-                </Sheet>
+                const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-                {/* View Toggle */}
-                <div className="hidden items-center gap-1 rounded-lg border border-border p-1 md:flex">
-                  <Button
-                    variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
-                    size="icon"
-                    className="h-8 w-8"
-                    onClick={() => setViewMode('grid')}
-                  >
-                    <Grid className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    variant={viewMode === 'list' ? 'secondary' : 'ghost'}
-                    size="icon"
-                    className="h-8 w-8"
-                    onClick={() => setViewMode('list')}
-                  >
-                    <List className="h-4 w-4" />
-                  </Button>
+                // ... (existing code)
+
+                <div className="flex items-center gap-3">
+                  {/* Mobile Filter Button */}
+                  <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
+                    <SheetTrigger asChild>
+                      <Button variant="outline" className="gap-2 lg:hidden">
+                        <SlidersHorizontal className="h-4 w-4" />
+                        Filters
+                        {hasActiveFilters && (
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
+                            !
+                          </span>
+                        )}
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left" className="w-full max-w-sm p-0">
+                      <div className="h-full overflow-y-auto">
+                        <FilterSidebar
+                          onFiltersChange={setFilters}
+                          onClose={() => setIsFilterOpen(false)}
+                          isMobile
+                          initialProvince={locationQuery}
+                        />
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+
+                  {/* View Toggle */}
+                  <div className="hidden items-center gap-1 rounded-lg border border-border p-1 md:flex">
+                    <Button
+                      variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => setViewMode('grid')}
+                    >
+                      <Grid className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant={viewMode === 'list' ? 'secondary' : 'ghost'}
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => setViewMode('list')}
+                    >
+                      <List className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Active Filters */}
-            {hasActiveFilters && (
-              <div className="mb-6 flex flex-wrap items-center gap-2">
-                <span className="text-sm text-muted-foreground">Active filters:</span>
-                {filters.amenities.map((amenity) => (
+              {/* Active Filters */}
+              {hasActiveFilters && (
+                <div className="mb-6 flex flex-wrap items-center gap-2">
+                  <span className="text-sm text-muted-foreground">Active filters:</span>
+                  {filters.amenities.map((amenity) => (
+                    <Button
+                      key={amenity}
+                      variant="secondary"
+                      size="sm"
+                      className="gap-1 rounded-full"
+                      onClick={() => setFilters(prev => ({
+                        ...prev,
+                        amenities: prev.amenities.filter(a => a !== amenity)
+                      }))}
+                    >
+                      {amenity}
+                      <X className="h-3 w-3" />
+                    </Button>
+                  ))}
                   <Button
-                    key={amenity}
-                    variant="secondary"
+                    variant="ghost"
                     size="sm"
-                    className="gap-1 rounded-full"
-                    onClick={() => setFilters(prev => ({
-                      ...prev,
-                      amenities: prev.amenities.filter(a => a !== amenity)
-                    }))}
-                  >
-                    {amenity}
-                    <X className="h-3 w-3" />
-                  </Button>
-                ))}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-primary"
-                  onClick={() => setFilters({
-                    priceRange: [0, 4000],
-                    amenities: [],
-                    stars: [],
-                    propertyTypes: [],
-                    sortBy: 'rating-high',
-                    province: locationQuery,
-                    zones: [],
-                    guestRating: null,
-                    paymentTypes: []
-                  })}
-                >
-                  Clear all
-                </Button>
-              </div>
-            )}
-
-            {filteredHotels.length > 0 ? (
-              <div
-                className={
-                  viewMode === 'grid'
-                    ? 'grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
-                    : 'flex flex-col gap-3'
-                }
-              >
-                {filteredHotels.map((hotel) => (
-                  <HotelCard key={hotel.id} hotel={hotel} viewMode={viewMode} />
-                ))}
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div className="mb-4 text-6xl">🏨</div>
-                <h3 className="mb-2 text-xl font-semibold text-foreground">No hotels found</h3>
-                <p className="mb-6 text-muted-foreground">
-                  Try adjusting your filters or search for a different destination.
-                </p>
-                <Button
-                  onClick={() => {
-                    setFilters({
+                    className="text-primary"
+                    onClick={() => setFilters({
                       priceRange: [0, 4000],
                       amenities: [],
                       stars: [],
                       propertyTypes: [],
                       sortBy: 'rating-high',
-                      province: '',
+                      province: locationQuery,
                       zones: [],
                       guestRating: null,
                       paymentTypes: []
-                    });
-                  }}
-                >
-                  Clear Filters
-                </Button>
-              </div>
-            )}
+                    })}
+                  >
+                    Clear all
+                  </Button>
+                </div>
+              )}
 
-            <div className="mt-8">
-              <Footer />
+              {filteredHotels.length > 0 ? (
+                <div
+                  className={
+                    viewMode === 'grid'
+                      ? 'grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
+                      : 'flex flex-col gap-3'
+                  }
+                >
+                  {filteredHotels.map((hotel) => (
+                    <HotelCard key={hotel.id} hotel={hotel} viewMode={viewMode} />
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center py-16 text-center">
+                  <div className="mb-4 text-6xl">🏨</div>
+                  <h3 className="mb-2 text-xl font-semibold text-foreground">No hotels found</h3>
+                  <p className="mb-6 text-muted-foreground">
+                    Try adjusting your filters or search for a different destination.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setFilters({
+                        priceRange: [0, 4000],
+                        amenities: [],
+                        stars: [],
+                        propertyTypes: [],
+                        sortBy: 'rating-high',
+                        province: '',
+                        zones: [],
+                        guestRating: null,
+                        paymentTypes: []
+                      });
+                    }}
+                  >
+                    Clear Filters
+                  </Button>
+                </div>
+              )}
+
+              <div className="mt-8">
+                <Footer />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Floating Map Button - Navigates to Map Page */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 lg:hidden">
-        <Button
-          onClick={() => window.location.href = `/map-search?${searchParams.toString()}`}
-          className="rounded-full shadow-lg bg-slate-900 text-white px-6 py-6 font-bold flex items-center gap-2 hover:bg-slate-800 hover:scale-105 transition-all text-sm"
-        >
-          <MapPin className="w-4 h-4" />
-          Map View
-        </Button>
-      </div>
+        {/* Mobile Floating Map Button - Navigates to Map Page */}
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 lg:hidden">
+          <Button
+            onClick={() => window.location.href = `/map-search?${searchParams.toString()}`}
+            className="rounded-full shadow-lg bg-slate-900 text-white px-6 py-6 font-bold flex items-center gap-2 hover:bg-slate-800 hover:scale-105 transition-all text-sm"
+          >
+            <MapPin className="w-4 h-4" />
+            Map View
+          </Button>
+        </div>
 
-      {/* Map Modal */}
-      <Dialog open={showMap} onOpenChange={setShowMap}>
-        <DialogContent className="max-w-[95vw] h-[90vh] w-full p-0 overflow-hidden flex flex-col">
-          <div className="p-4 border-b flex items-center justify-between">
-            <h2 className="text-xl font-bold">Map View</h2>
-            {/* Standard Close button is built-in to DialogContent, usually */}
-          </div>
-          <div className="flex-1 relative">
-            <HotelMap hotels={filteredHotels} />
-          </div>
-        </DialogContent>
-      </Dialog>
-    </div>
-  );
+        {/* Map Modal */}
+        <Dialog open={showMap} onOpenChange={setShowMap}>
+          <DialogContent className="max-w-[95vw] h-[90vh] w-full p-0 overflow-hidden flex flex-col">
+            <div className="p-4 border-b flex items-center justify-between">
+              <h2 className="text-xl font-bold">Map View</h2>
+              {/* Standard Close button is built-in to DialogContent, usually */}
+            </div>
+            <div className="flex-1 relative">
+              <HotelMap hotels={filteredHotels} />
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
+      );
 };
 
-export default SearchResults;
+      export default SearchResults;
