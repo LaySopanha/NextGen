@@ -78,7 +78,7 @@ const RoomCard = ({ room, onSelect }: RoomCardProps) => {
 
         {/* Meal Plan Selection */}
         <div className="mb-4 rounded-lg bg-muted/50 p-3">
-          <button 
+          <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex w-full items-center justify-between text-sm font-medium text-foreground"
           >
@@ -91,7 +91,7 @@ const RoomCard = ({ room, onSelect }: RoomCardProps) => {
             </div>
             <span className="text-muted-foreground">{isExpanded ? '▲' : '▼'}</span>
           </button>
-          
+
           {isExpanded && (
             <RadioGroup
               value={selectedMealPlan}
@@ -124,18 +124,18 @@ const RoomCard = ({ room, onSelect }: RoomCardProps) => {
         {/* Price and Book */}
         <div className="mt-auto flex items-center justify-between border-t border-border pt-4">
           <div>
-            <div className="flex items-baseline gap-1">
-              <span className="text-xl font-bold text-foreground">${totalPrice}</span>
-              <span className="text-sm text-muted-foreground">/ night</span>
+            <div className="flex flex-col items-end gap-1">
+              <div className="flex flex-col items-end">
+                <span className="text-2xl font-bold text-blue-600">${totalPrice}</span>
+                <span className="text-xs text-slate-500 font-medium">៛{(totalPrice * 4100).toLocaleString()}</span>
+              </div>
+              <span className="text-xs text-gray-500">per night</span>
+              <p className="text-[10px] text-gray-400">Includes taxes & fees</p>
+              <Button onClick={() => onSelect(room, currentMealPlan)} className="mt-2 w-full font-bold">
+                Book Now
+              </Button>
             </div>
-            <p className="text-xs text-muted-foreground">Includes taxes and fees</p>
           </div>
-          <Button
-            onClick={() => onSelect(room, currentMealPlan)}
-            className="rounded-full"
-          >
-            Book Now
-          </Button>
         </div>
       </div>
     </div>

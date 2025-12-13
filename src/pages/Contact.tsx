@@ -70,7 +70,7 @@ const Contact = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex flex-col bg-background">
+      <div className="min-h-screen flex flex-col bg-background pt-16">
         <Header />
         <main className="flex-1 flex items-center justify-center px-4 py-16">
           <div className="text-center max-w-md">
@@ -92,7 +92,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background pt-16">
       <Header />
       
       <main className="flex-1">

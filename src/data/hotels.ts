@@ -4,7 +4,7 @@ import sihanoukvilleImg from '@/assets/destinations/sihanoukville.jpg';
 import kampotImg from '@/assets/destinations/kampot.jpg';
 import battambangImg from '@/assets/destinations/battambang.jpg';
 
-export type PropertyType = 'Hotel' | 'Resort' | 'Villa' | 'Boutique' | 'Apartment' | 'Guesthouse';
+export type PropertyType = 'Hotel' | 'Resort' | 'Villa' | 'Boutique' | 'Apartment' | 'Guesthouse' | 'Glamping' | 'Lodge';
 
 export interface Hotel {
   id: string;
@@ -25,6 +25,20 @@ export interface Hotel {
     lat: number;
     lng: number;
   };
+  policies?: {
+    checkIn: string;
+    checkOut: string;
+    cancellation: string;
+    children: string;
+    pets: string;
+  };
+  scoreBreakdown?: {
+    cleanliness: number;
+    service: number;
+    amenities: number;
+    location: number;
+  };
+  paymentMethods?: string[];
 }
 
 export interface MealPlan {
@@ -127,7 +141,7 @@ export const destinations: Destination[] = [
     name: 'Siem Reap',
     country: 'Cambodia',
     image: siemReapImg,
-    hotelCount: 6,
+    hotelCount: 342,
     description: 'Home to the magnificent Angkor Wat temple complex'
   },
   {
@@ -135,7 +149,7 @@ export const destinations: Destination[] = [
     name: 'Phnom Penh',
     country: 'Cambodia',
     image: phnomPenhImg,
-    hotelCount: 5,
+    hotelCount: 215,
     description: 'The vibrant capital city along the Mekong River'
   },
   {
@@ -143,7 +157,7 @@ export const destinations: Destination[] = [
     name: 'Sihanoukville',
     country: 'Cambodia',
     image: sihanoukvilleImg,
-    hotelCount: 4,
+    hotelCount: 156,
     description: 'Beautiful beaches and tropical island getaways'
   },
   {
@@ -151,7 +165,7 @@ export const destinations: Destination[] = [
     name: 'Kampot',
     country: 'Cambodia',
     image: kampotImg,
-    hotelCount: 4,
+    hotelCount: 89,
     description: 'Riverside charm, pepper plantations, and Bokor Mountain'
   },
   {
@@ -159,8 +173,128 @@ export const destinations: Destination[] = [
     name: 'Battambang',
     country: 'Cambodia',
     image: battambangImg,
-    hotelCount: 3,
+    hotelCount: 45,
     description: 'Colonial charm and authentic Cambodian culture'
+  },
+  {
+    id: 'kep',
+    name: 'Kep',
+    country: 'Cambodia',
+    image: 'https://www.indochinavoyages.com/wp-content/uploads/2019/11/kep_cambodia.jpg',
+    hotelCount: 32,
+    description: 'Coastal town known for crabs'
+  },
+  {
+    id: 'koh-kong',
+    name: 'Koh Kong',
+    country: 'Cambodia',
+    image: 'https://www.asiakingtravel.com/cuploads/files/Koh-Kong-1(1).jpg',
+    hotelCount: 18,
+    description: 'Eco-tourism and waterfalls'
+  },
+  {
+    id: 'mondulkiri',
+    name: 'Mondulkiri',
+    country: 'Cambodia',
+    image: 'https://www.greeneratravel.com/userfiles/850bousrawaterfall.jpg',
+    hotelCount: 15,
+    description: 'Elephants and rolling hills'
+  },
+  {
+    id: 'ratanakiri',
+    name: 'Ratanakiri',
+    country: 'Cambodia',
+    image: 'https://lh6.googleusercontent.com/proxy/777hqkVb_NVAycLnawF4SkvEsRGkUXSUX9qJKrd9KqOf2RkuwKiXQVMYmAsZwM1gfYoDxiMHgUmtPK4OiOthFzvNRJ9sXs1-aNPk7ej0tsMM62ftGvdEVW6TSkx5SU-cC2RMaJDga8YXN24Mim3mxA-8nnZVU2AHzVil4DcU5tv2',
+    hotelCount: 12,
+    description: 'Volcanic lakes and trekking'
+  },
+  {
+    id: 'kampong-cham',
+    name: 'Kampong Cham',
+    country: 'Cambodia',
+    image: 'https://www.asiakingtravel.com/cuploads/files/Kampong-Cham-1(1).jpg',
+    hotelCount: 10,
+    description: 'Mekong river life'
+  },
+  {
+    id: 'kampong-thom',
+    name: 'Kampong Thom',
+    country: 'Cambodia',
+    image: 'https://www.vivutravel.com/images/des-cambodia3/kampong-thom-travel-guide.jpg',
+    hotelCount: 8,
+    description: 'Sambor Prei Kuk temples'
+  },
+  {
+    id: 'preah-vihear',
+    name: 'Preah Vihear',
+    country: 'Cambodia',
+    image: 'https://res.klook.com/image/upload/w_750,h_469,c_fill,q_85/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/w4gaxj3iaysci0tb0dke.jpg',
+    hotelCount: 5,
+    description: 'Mountain top temple'
+  },
+  {
+    id: 'kratie',
+    name: 'Kratie',
+    country: 'Cambodia',
+    image: 'https://angkorfocus.com/userfiles/kratie-2.jpg',
+    hotelCount: 7,
+    description: 'Irrawaddy Dolphins'
+  },
+  {
+    id: 'stung-treng',
+    name: 'Stung Treng',
+    country: 'Cambodia',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/ea/74/da/stung-treng-province.jpg?w=1400&h=1400&s=1',
+    hotelCount: 4,
+    description: 'Mekong rapids'
+  },
+  {
+    id: 'takeo',
+    name: 'Takeo',
+    country: 'Cambodia',
+    image: 'https://www.asiakingtravel.com/cuploads/images/Cambodia/takeo-1.jpg',
+    hotelCount: 5,
+    description: 'Ancient history'
+  },
+  {
+    id: 'banteay-meanchey',
+    name: 'Banteay Meanchey',
+    country: 'Cambodia',
+    image: 'https://www.asiakingtravel.com/cuploads/files/Banteay%20Meanchey%20-%202.jpg',
+    hotelCount: 8,
+    description: 'Border province'
+  },
+  {
+    id: 'pailin',
+    name: 'Pailin',
+    country: 'Cambodia',
+    image: 'https://i0.wp.com/www.cambodialifestyle.com/wp-content/uploads/2024/04/pailin-1.jpg?fit=785%2C475&ssl=1',
+    hotelCount: 3,
+    description: 'Cardamom mountains'
+  },
+  {
+    id: 'tbong-khmum',
+    name: 'Tbong Khmum',
+    country: 'Cambodia',
+    image: 'https://i0.wp.com/www.cambodialifestyle.com/wp-content/uploads/2024/04/Tbong-Khmum-1.jpg?fit=750%2C440&ssl=1',
+    hotelCount: 2,
+    description: 'Eastern plains'
+  },
+  {
+    id: 'prey-veng',
+    name: 'Prey Veng',
+    country: 'Cambodia',
+    image: 'https://construction-property.com/wp-content/uploads/2018/05/chinese-firm-to-build-a-new-300-hectare-satellite-city-in-prey-veng.jpg',
+    hotelCount: 4,
+    description: 'Agriculture heartland'
+  },
+  {
+    id: 'svay-rieng',
+    name: 'Svay Rieng',
+    country: 'Cambodia',
+    image: 'https://i0.wp.com/www.cambodialifestyle.com/wp-content/uploads/2024/04/Svay-Rieng-5.jpg?fit=1000%2C719&ssl=1',
+    hotelCount: 5,
+    description: 'Border trade'
   }
 ];
 
@@ -230,7 +364,21 @@ export const hotels: Hotel[] = [
         available: 2
       }
     ],
-    coordinates: { lat: 13.3621, lng: 103.8542 }
+    coordinates: { lat: 13.3621, lng: 103.8542 },
+    policies: {
+      checkIn: '14:00',
+      checkOut: '12:00',
+      cancellation: 'Free cancellation until 24 hours before check-in',
+      children: 'Children under 12 stay free when using existing bedding',
+      pets: 'Pets are not allowed'
+    },
+    scoreBreakdown: {
+      cleanliness: 4.9,
+      service: 4.8,
+      amenities: 4.8,
+      location: 4.7
+    },
+    paymentMethods: ['Credit Card', 'Cash', 'UnionPay']
   },
   {
     id: 'jaya-house-river-park',
@@ -285,7 +433,21 @@ export const hotels: Hotel[] = [
         available: 2
       }
     ],
-    coordinates: { lat: 13.3548, lng: 103.8554 }
+    coordinates: { lat: 13.3548, lng: 103.8554 },
+    policies: {
+      checkIn: '14:00',
+      checkOut: '12:00',
+      cancellation: 'Free cancellation until 48 hours before check-in',
+      children: 'Extra bed available for $30/night',
+      pets: 'Small pets allowed upon request'
+    },
+    scoreBreakdown: {
+      cleanliness: 5.0,
+      service: 5.0,
+      amenities: 4.9,
+      location: 4.9
+    },
+    paymentMethods: ['Credit Card', 'AliPay', 'WeChat Pay']
   },
   {
     id: 'borei-angkor-resort',
@@ -340,7 +502,21 @@ export const hotels: Hotel[] = [
         available: 4
       }
     ],
-    coordinates: { lat: 13.3847, lng: 103.8588 }
+    coordinates: { lat: 13.3847, lng: 103.8588 },
+    policies: {
+      checkIn: '14:00',
+      checkOut: '12:00',
+      cancellation: 'Non-refundable',
+      children: 'Children welcome',
+      pets: 'No pets allowed'
+    },
+    scoreBreakdown: {
+      cleanliness: 4.6,
+      service: 4.7,
+      amenities: 4.8,
+      location: 4.5
+    },
+    paymentMethods: ['Credit Card', 'Cash']
   },
   {
     id: 'raffles-grand-hotel-angkor',
@@ -406,7 +582,21 @@ export const hotels: Hotel[] = [
         available: 1
       }
     ],
-    coordinates: { lat: 13.3633, lng: 103.8564 }
+    coordinates: { lat: 13.3633, lng: 103.8564 },
+    policies: {
+      checkIn: '15:00',
+      checkOut: '12:00',
+      cancellation: 'Free cancellation until 7 days before check-in',
+      children: 'Children stay free',
+      pets: 'No pets allowed'
+    },
+    scoreBreakdown: {
+      cleanliness: 5.0,
+      service: 4.9,
+      amenities: 4.9,
+      location: 4.9
+    },
+    paymentMethods: ['Credit Card', 'UnionPay', 'JCB']
   },
   {
     id: 'angkor-village-hotel',
@@ -461,7 +651,21 @@ export const hotels: Hotel[] = [
         available: 4
       }
     ],
-    coordinates: { lat: 13.3612, lng: 103.8612 }
+    coordinates: { lat: 13.3612, lng: 103.8612 },
+    policies: {
+      checkIn: '14:00',
+      checkOut: '12:00',
+      cancellation: 'Free cancellation until 3 days before check-in',
+      children: 'Family friendly',
+      pets: 'Upon request'
+    },
+    scoreBreakdown: {
+      cleanliness: 4.5,
+      service: 4.6,
+      amenities: 4.4,
+      location: 4.5
+    },
+    paymentMethods: ['Cash', 'Credit Card']
   },
   {
     id: 'motherhome-guesthouse',
@@ -527,7 +731,21 @@ export const hotels: Hotel[] = [
         available: 3
       }
     ],
-    coordinates: { lat: 13.3587, lng: 103.8598 }
+    coordinates: { lat: 13.3587, lng: 103.8598 },
+    policies: {
+      checkIn: '12:00',
+      checkOut: '11:00',
+      cancellation: 'Free cancellation until 24 hours before check-in',
+      children: 'Children welcome',
+      pets: 'No pets allowed'
+    },
+    scoreBreakdown: {
+      cleanliness: 4.7,
+      service: 4.9,
+      amenities: 4.2,
+      location: 4.8
+    },
+    paymentMethods: ['Cash']
   },
 
   // ========== PHNOM PENH HOTELS ==========
@@ -1188,7 +1406,7 @@ export const hotels: Hotel[] = [
     id: 'sabay-beach-kep',
     name: 'Sabay Beach Kep',
     location: 'Kep Beach, Kep',
-    city: 'Kampot',
+    city: 'Kep',
     country: 'Cambodia',
     description: 'Charming beachfront resort in the sleepy coastal town of Kep. Famous for its fresh crab, peaceful atmosphere, and stunning sunsets over the Gulf of Thailand.',
     price: 95,
@@ -1471,6 +1689,243 @@ export const hotels: Hotel[] = [
       }
     ],
     coordinates: { lat: 13.0989, lng: 103.1967 }
+  },
+
+  // ========== KEP ==========
+  {
+    id: 'knai-bang-chatt',
+    name: 'Knai Bang Chatt Resort',
+    location: 'Phum Thmey, Kep',
+    city: 'Kep',
+    country: 'Cambodia',
+    description: 'A luxurious coastal resort dedicated to the art of living. Set in restored 1970s villas with a saltwater pool and sailing club right on the oceanfront.',
+    price: 250,
+    rating: 4.8,
+    reviews: 654,
+    stars: 5,
+    propertyType: 'Resort',
+    images: [
+      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800'
+    ],
+    amenities: ['Saltwater Pool', 'Sailing Club', 'Spa', 'Fine Dining', 'Yoga', 'Cooking Class'],
+    roomTypes: [
+      {
+        id: 'sea-view',
+        name: 'Sea View Room',
+        price: 250,
+        capacity: 2,
+        beds: '1 King Bed',
+        size: 35,
+        amenities: ['Ocean View', 'Terrace', 'Air Conditioning', 'Safe'],
+        image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+        available: 5
+      }
+    ],
+    coordinates: { lat: 10.4812, lng: 104.2956 }
+  },
+  {
+    id: 'veranda-natural-resort',
+    name: 'Veranda Natural Resort',
+    location: 'Kep National Park, Kep',
+    city: 'Kep',
+    country: 'Cambodia',
+    description: 'A nature lover\'s paradise tucked into the hillside of Kep National Park. Stunning ocean views, wooden walkways, and a bakery famous across the region.',
+    price: 85,
+    rating: 4.6,
+    reviews: 1243,
+    stars: 4,
+    propertyType: 'Resort',
+    images: [
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800'
+    ],
+    amenities: ['2 Pools', 'Bakery', 'Sky Bar', 'Nature Trails', 'Free WiFi'],
+    roomTypes: [
+      {
+        id: 'bungalow',
+        name: 'Hillside Bungalow',
+        price: 85,
+        capacity: 2,
+        beds: '1 Queen Bed',
+        size: 30,
+        amenities: ['Mountain View', 'Private Balcony', 'AC', 'Mini Bar'],
+        image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
+        available: 8
+      }
+    ],
+    coordinates: { lat: 10.4891, lng: 104.3012 }
+  },
+
+  // ========== KOH KONG ==========
+  {
+    id: '4-rivers-floating-lodge',
+    name: '4 Rivers Floating Lodge',
+    location: 'TataI River, Koh Kong',
+    city: 'Koh Kong',
+    country: 'Cambodia',
+    description: 'An environmentally friendly luxury tented camp floating on the Tatai River. Wake up to the sounds of the jungle and clear water all around you.',
+    price: 220,
+    rating: 4.9,
+    reviews: 890,
+    stars: 4,
+    propertyType: 'Glamping',
+    images: [
+      'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800',
+      'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800'
+    ],
+    amenities: ['River Kayaking', 'Waterfall Tours', 'Restaurant', 'Private Deck', 'Eco-Friendly'],
+    roomTypes: [
+      {
+        id: 'tented-villa',
+        name: 'Floating Tent',
+        price: 220,
+        capacity: 2,
+        beds: '1 King Bed',
+        size: 45,
+        amenities: ['River View', 'Private Deck', 'Fan', 'Safe'],
+        image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800',
+        available: 12
+      }
+    ],
+    coordinates: { lat: 11.5542, lng: 103.1234 }
+  },
+
+  // ========== MONDULKIRI ==========
+  {
+    id: 'mayura-hill-resort',
+    name: 'Mayura Hill Resort',
+    location: 'Sen Monorom, Mondulkiri',
+    city: 'Mondulkiri',
+    country: 'Cambodia',
+    description: 'Nestled in the hills of Sen Monorom, this resort offers luxurious villas, a beautiful pool, and easy access to the famous Bou Sra Waterfall.',
+    price: 110,
+    rating: 4.5,
+    reviews: 321,
+    stars: 4,
+    propertyType: 'Resort',
+    images: [
+      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800'
+    ],
+    amenities: ['Pool', 'Gym', 'Restaurant', 'Zip Line', 'Elephant Tours'],
+    roomTypes: [
+      {
+        id: 'villa',
+        name: 'Hilltop Villa',
+        price: 110,
+        capacity: 2,
+        beds: '1 King Bed',
+        size: 50,
+        amenities: ['Mountain View', 'Jacuzzi', 'AC', 'Terrace'],
+        image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+        available: 6
+      }
+    ],
+    coordinates: { lat: 12.4567, lng: 107.1892 }
+  },
+
+  // ========== RATANAKIRI ==========
+  {
+    id: 'terres-rouges-lodge',
+    name: 'Terres Rouges Lodge',
+    location: 'Banlung, Ratanakiri',
+    city: 'Ratanakiri',
+    country: 'Cambodia',
+    description: 'A historic lodge set in a tropical garden by the Boeung Kansaign Lake. Features colonial architecture, a pool, and is a great base for trekking.',
+    price: 65,
+    rating: 4.4,
+    reviews: 450,
+    stars: 3,
+    propertyType: 'Lodge',
+    images: [
+      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+      'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800'
+    ],
+    amenities: ['Lake View', 'Pool', 'Restaurant', 'Spa', 'Trekking Guides'],
+    roomTypes: [
+      {
+        id: 'standard-bungalow',
+        name: 'Garden Bungalow',
+        price: 65,
+        capacity: 2,
+        beds: '1 Double Bed',
+        size: 28,
+        amenities: ['Garden View', 'AC', 'Private Bathroom'],
+        image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+        available: 10
+      }
+    ],
+    coordinates: { lat: 13.7394, lng: 106.9821 }
+  },
+
+  // ========== KAMPONG CHAM ==========
+  {
+    id: 'lbn-asian-hotel',
+    name: 'LBN Asian Hotel',
+    location: 'Riverfront, Kampong Cham',
+    city: 'Kampong Cham',
+    country: 'Cambodia',
+    description: 'A modern landmark hotel on the Mekong riverfront. Offering comfortable rooms, panoramic river views, and a sky bar.',
+    price: 45,
+    rating: 4.2,
+    reviews: 560,
+    stars: 3,
+    propertyType: 'Hotel',
+    images: [
+      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
+      'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800'
+    ],
+    amenities: ['Sky Bar', 'River View', 'Conference Room', 'Spa', 'Free WiFi'],
+    roomTypes: [
+      {
+        id: 'deluxe-river',
+        name: 'Deluxe River View',
+        price: 45,
+        capacity: 2,
+        beds: '1 King Bed',
+        size: 32,
+        amenities: ['River View', 'AC', 'TV', 'Fridge'],
+        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        available: 15
+      }
+    ],
+    coordinates: { lat: 11.9924, lng: 105.4645 }
+  },
+
+  // ========== PREAH VIHEAR ==========
+  {
+    id: 'preah-vihear-boutique',
+    name: 'Preah Vihear Boutique Hotel',
+    location: 'Sra Em, Preah Vihear',
+    city: 'Preah Vihear',
+    country: 'Cambodia',
+    description: 'Convenient and comfortable accommodation located near the Preah Vihear Temple. Features a large pool and clean, modern rooms.',
+    price: 55,
+    rating: 4.0,
+    reviews: 230,
+    stars: 3,
+    propertyType: 'Hotel',
+    images: [
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
+      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800'
+    ],
+    amenities: ['Pool', 'Restaurant', 'Temple Tours', 'Parking', 'Garden'],
+    roomTypes: [
+      {
+        id: 'superior',
+        name: 'Superior Room',
+        price: 55,
+        capacity: 2,
+        beds: '1 King or 2 Twins',
+        size: 30,
+        amenities: ['Pool View', 'AC', 'TV', 'Kettle'],
+        image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
+        available: 20
+      }
+    ],
+    coordinates: { lat: 14.1623, lng: 104.8765 }
   }
 ];
 
@@ -1481,7 +1936,7 @@ export const getHotelById = (id: string): Hotel | undefined => {
 
 export const searchHotels = (query: string): Hotel[] => {
   const lowerQuery = query.toLowerCase();
-  return hotels.filter(hotel => 
+  return hotels.filter(hotel =>
     hotel.name.toLowerCase().includes(lowerQuery) ||
     hotel.location.toLowerCase().includes(lowerQuery) ||
     hotel.city.toLowerCase().includes(lowerQuery) ||
@@ -1501,10 +1956,10 @@ export const filterHotels = (filters: {
       const [min, max] = filters.priceRange;
       if (hotel.price < min || hotel.price > max) return false;
     }
-    
+
     if (filters.amenities && filters.amenities.length > 0) {
       const hotelAmenities = hotel.amenities.map(a => a.toLowerCase());
-      const hasAllAmenities = filters.amenities.every(amenity => 
+      const hasAllAmenities = filters.amenities.every(amenity =>
         hotelAmenities.some(ha => ha.includes(amenity.toLowerCase()))
       );
       if (!hasAllAmenities) return false;
@@ -1517,7 +1972,7 @@ export const filterHotels = (filters: {
     if (filters.propertyTypes && filters.propertyTypes.length > 0) {
       if (!filters.propertyTypes.includes(hotel.propertyType)) return false;
     }
-    
+
     return true;
   });
 };

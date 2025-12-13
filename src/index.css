@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 20% 95%;
     --foreground: 210 29% 24%;
 
     --card: 0 0% 100%;
@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 29% 24%;
 
-    --primary: 203 82% 21%;
+    --primary: 206 82% 21%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 203 30% 95%;
@@ -42,7 +42,7 @@
     --gold: 48 89% 50%;
     --turquoise: 168 76% 42%;
     --dark-gray: 210 29% 24%;
-    
+
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
@@ -112,37 +112,13 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Hide scrollbars while keeping scroll functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  /* Custom scrollbar styling */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground) / 0.5);
-  }
-
-  /* Hide scrollbar on mobile for cleaner look */
-  @media (max-width: 768px) {
-    ::-webkit-scrollbar {
-      width: 0px;
-      height: 0px;
-    }
-    
-    * {
-      scrollbar-width: none;
-    }
+    display: none;
   }
 }
 
@@ -153,5 +129,18 @@
 
   .glass {
     @apply bg-background/80 backdrop-blur-lg;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }

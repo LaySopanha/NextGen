@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background py-16">
+    <footer className="bg-[#2C3E50] text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Destinations</h4>
             <ul className="space-y-2 text-background/70">
@@ -38,7 +38,7 @@ const Footer = () => {
               <li><Link to="/search?city=Battambang" className="hover:text-background transition-colors">Battambang</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">For Agents</h4>
             <ul className="space-y-2 text-background/70">
@@ -49,7 +49,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-background/20 mt-12 pt-8 text-center text-background/60">
           <p>&copy; {new Date().getFullYear()} NextGen. All rights reserved.</p>
         </div>

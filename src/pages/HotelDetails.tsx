@@ -3,7 +3,9 @@ import { Star, MapPin, Share, Heart, Check, Wifi, Car, Utensils, Waves, Dumbbell
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ImageGallery from '@/components/ImageGallery';
-import RoomCard from '@/components/RoomCard';
+import RoomList from '@/components/RoomList';
+import HotelStickyNav from '@/components/HotelStickyNav';
+import HotelPolicies from '@/components/HotelPolicies';
 import { getHotelById, RoomType, MealPlan, mealPlans } from '@/data/hotels';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -29,7 +31,7 @@ const HotelDetails = () => {
 
   if (!hotel) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background pt-14">
         <Header />
         <div className="container flex min-h-[60vh] flex-col items-center justify-center px-4">
           <h1 className="mb-4 text-2xl font-bold text-foreground">Hotel not found</h1>
@@ -59,10 +61,12 @@ const HotelDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-20 md:pt-24">
       <Header />
 
-      <main className="container px-4 py-8">
+      <HotelStickyNav />
+
+      <main className="container px-4 py-8" id="overview">
         {/* Title Section */}
         <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
@@ -87,7 +91,7 @@ const HotelDetails = () => {
         <ImageGallery images={hotel.images} hotelName={hotel.name} />
 
         {/* Content Grid */}
-        <div className="mt-8 grid gap-8 lg:grid-cols-3">
+        <div className="mt-8 grid gap-12 lg:grid-cols-3">
           {/* Main Content */}
           <div className="lg:col-span-2">
             {/* Rating & Reviews Summary */}
@@ -113,8 +117,33 @@ const HotelDetails = () => {
 
             <Separator className="my-8" />
 
+            {/* Score Breakdown */}
+            <div className="mb-8" id="reviews">
+              <h2 className="mb-4 text-xl font-semibold text-foreground">Guest Ratings</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl">
+                <div className="text-center">
+                  <div className="font-bold text-2xl text-blue-600">{hotel.scoreBreakdown?.cleanliness || hotel.rating}</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">Cleanliness</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-bold text-2xl text-blue-600">{hotel.scoreBreakdown?.service || hotel.rating}</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">Service</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-bold text-2xl text-blue-600">{hotel.scoreBreakdown?.amenities || hotel.rating}</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">Amenities</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-bold text-2xl text-blue-600">{hotel.scoreBreakdown?.location || hotel.rating}</div>
+                  <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">Location</div>
+                </div>
+              </div>
+            </div>
+
+            <Separator className="my-8" />
+
             {/* Amenities */}
-            <div className="mb-8">
+            <div className="mb-8" id="amenities">
               <h2 className="mb-4 text-xl font-semibold text-foreground">What this place offers</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {hotel.amenities.map((amenity) => {
@@ -132,13 +161,14 @@ const HotelDetails = () => {
             <Separator className="my-8" />
 
             {/* Rooms */}
-            <div className="mb-8">
-              <h2 className="mb-4 text-xl font-semibold text-foreground">Available Rooms</h2>
-              <div className="space-y-4">
-                {hotel.roomTypes.map((room) => (
-                  <RoomCard key={room.id} room={room} onSelect={handleBookRoom} />
-                ))}
-              </div>
+            <div className="mb-8" id="rooms">
+              <RoomList rooms={hotel.roomTypes} onBook={handleBookRoom} />
+            </div>
+
+            <Separator className="my-8" />
+
+            <div id="policies">
+              <HotelPolicies policies={hotel.policies} />
             </div>
           </div>
 

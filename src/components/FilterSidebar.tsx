@@ -1,315 +1,348 @@
 import { useState, useEffect } from 'react';
-import { Star, X, ChevronDown, Landmark } from 'lucide-react';
+import { Search, MapPin, X, Check, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { useNavigate } from 'react-router-dom';
 import { provinceZones } from '@/data/hotels';
 
 interface FilterSidebarProps {
-  onFiltersChange: (filters: {
-    priceRange: [number, number];
-    stars: number[];
-    propertyTypes: string[];
-    amenities: string[];
-    sortBy: string;
-    province: string;
-    zones: string[];
-  }) => void;
+  onFiltersChange: (filters: any) => void;
   onClose?: () => void;
   isMobile?: boolean;
   initialProvince?: string;
+  onShowMap?: () => void;
 }
 
-const sortOptions = [
-  { value: 'price-low', label: 'Price: Low to High' },
-  { value: 'price-high', label: 'Price: High to Low' },
-  { value: 'name-asc', label: 'Name: A to Z' },
-  { value: 'name-desc', label: 'Name: Z to A' },
-  { value: 'rating-high', label: 'Rating: High to Low' },
-  { value: 'rating-low', label: 'Rating: Low to High' },
-];
+const FilterSidebar = ({ onFiltersChange, onClose, isMobile, initialProvince, onShowMap }: FilterSidebarProps) => {
+  const PRICE_MIN = 0;
+  const PRICE_MAX = 4000;
+  const pricePresets: [number, number][] = [
+    [0, 100],
+    [100, 300],
+    [300, 600],
+    [600, 1000],
+    [1000, 2000],
+  ];
 
-const propertyTypes = ['Hotel', 'Resort', 'Villa', 'Boutique', 'Apartment'];
-const amenitiesList = ['WiFi', 'Pool', 'Spa', 'Gym', 'Restaurant', 'Room Service', 'Airport Transfer', 'Parking'];
+  const [priceRange, setPriceRange] = useState([PRICE_MIN, PRICE_MAX]);
+  const [amenities, setAmenities] = useState<string[]>([]);
+  const [stars, setStars] = useState<number[]>([]);
+  const [propertyTypes, setPropertyTypes] = useState<string[]>([]);
+  const [guestRating, setGuestRating] = useState<number | null>(null);
+  const [paymentTypes, setPaymentTypes] = useState<string[]>([]);
+  const [zones, setZones] = useState<string[]>([]);
+  const [province, setProvince] = useState(initialProvince || '');
 
-const FilterSidebar = ({ onFiltersChange, onClose, isMobile, initialProvince }: FilterSidebarProps) => {
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 4000]);
-  const [selectedStars, setSelectedStars] = useState<number[]>([]);
-  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>([]);
-  const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<string>('rating-high');
-  const [selectedProvince, setSelectedProvince] = useState<string>(initialProvince || '');
-  const [selectedZones, setSelectedZones] = useState<string[]>([]);
-  
-  const [locationOpen, setLocationOpen] = useState(true);
-  const [sortOpen, setSortOpen] = useState(false);
-  const [priceOpen, setPriceOpen] = useState(true);
-  const [starsOpen, setStarsOpen] = useState(true);
-  const [propertyOpen, setPropertyOpen] = useState(true);
-  const [amenitiesOpen, setAmenitiesOpen] = useState(true);
-
-  // Get zones for selected province
-  const currentProvinceZones = provinceZones.find(p => p.province === selectedProvince)?.zones || [];
-
-  // Update province when initialProvince changes
+  // Effects to sync state
   useEffect(() => {
-    if (initialProvince && initialProvince !== selectedProvince) {
-      setSelectedProvince(initialProvince);
-      setSelectedZones([]);
-    }
-  }, [initialProvince]);
-
-  const handleApplyFilters = () => {
     onFiltersChange({
       priceRange,
-      stars: selectedStars,
-      propertyTypes: selectedPropertyTypes,
-      amenities: selectedAmenities,
-      sortBy,
-      province: selectedProvince,
-      zones: selectedZones,
+      amenities,
+      stars,
+      propertyTypes,
+      guestRating,
+      paymentTypes,
+      zones,
+      province
     });
-    if (isMobile && onClose) {
-      onClose();
+  }, [priceRange, amenities, stars, propertyTypes, guestRating, paymentTypes, zones, province]);
+
+  useEffect(() => {
+    if (initialProvince) setProvince(initialProvince);
+  }, [initialProvince]);
+
+  const toggleFilter = (item: string | number, currentList: any[], setList: (l: any[]) => void) => {
+    if (currentList.includes(item)) {
+      setList(currentList.filter(i => i !== item));
+    } else {
+      setList([...currentList, item]);
     }
   };
 
-  const handleClearFilters = () => {
-    setPriceRange([0, 4000]);
-    setSelectedStars([]);
-    setSelectedPropertyTypes([]);
-    setSelectedAmenities([]);
-    setSortBy('price-low');
-    setSelectedProvince('');
-    setSelectedZones([]);
-    onFiltersChange({
-      priceRange: [0, 4000],
-      stars: [],
-      propertyTypes: [],
-      amenities: [],
-      sortBy: 'price-low',
-      province: '',
-      zones: [],
-    });
+  const handleClearAll = () => {
+    setPriceRange([PRICE_MIN, PRICE_MAX]);
+    setAmenities([]);
+    setStars([]);
+    setPropertyTypes([]);
+    setGuestRating(null);
+    setPaymentTypes([]);
+    setZones([]);
   };
 
+  const availableZones = provinceZones.find(p => p.province.toLowerCase() === province.toLowerCase())?.zones || [];
 
-  const toggleStar = (star: number) => {
-    setSelectedStars((prev) =>
-      prev.includes(star) ? prev.filter((s) => s !== star) : [...prev, star]
-    );
+  const updateMinPrice = (value: number) => {
+    const clamped = Math.max(PRICE_MIN, Math.min(value, priceRange[1]));
+    setPriceRange([clamped, priceRange[1]]);
   };
 
-  const togglePropertyType = (type: string) => {
-    setSelectedPropertyTypes((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
-    );
-  };
-
-  const toggleAmenity = (amenity: string) => {
-    setSelectedAmenities((prev) =>
-      prev.includes(amenity) ? prev.filter((a) => a !== amenity) : [...prev, amenity]
-    );
-  };
-
-  const toggleZone = (zoneId: string) => {
-    setSelectedZones((prev) =>
-      prev.includes(zoneId) ? prev.filter((z) => z !== zoneId) : [...prev, zoneId]
-    );
+  const updateMaxPrice = (value: number) => {
+    const clamped = Math.min(PRICE_MAX, Math.max(value, priceRange[0]));
+    setPriceRange([priceRange[0], clamped]);
   };
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6">
-      <div className="mb-6 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-foreground">Filters</h3>
-        {isMobile && onClose && (
-          <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-5 w-5" />
+    <div className={`flex flex-col h-full bg-card rounded-xl border border-border/50 shadow-sm ${isMobile ? 'border-none shadow-none rounded-none' : ''}`}>
+      {!isMobile && (
+        <div className="p-4 border-b border-border flex items-center justify-between">
+          <h3 className="font-bold text-lg">Filters</h3>
+          <Button variant="ghost" size="sm" onClick={handleClearAll} className="text-primary hover:text-primary/80 h-auto p-0 hover:bg-transparent">
+            Clear all
           </Button>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* Popular Areas - Shows only when province is selected */}
-      {selectedProvince && currentProvinceZones.length > 0 && (
-        <Collapsible open={locationOpen} onOpenChange={setLocationOpen}>
-          <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
-            <div className="flex items-center gap-2">
-              <Landmark className="h-4 w-4 text-primary" />
-              <h4 className="font-medium text-foreground">Popular Areas in {selectedProvince}</h4>
+      {/* Show on Map Widget */}
+      {!isMobile && (
+        <div className="p-4 border-b border-border">
+          <div
+            className="relative h-24 rounded-lg overflow-hidden border border-border cursor-pointer group"
+            onClick={() => {
+              const params = new URLSearchParams();
+              if (province) params.set('location', province);
+              window.location.href = `/map-search?${params.toString()}`;
+            }}
+          >
+            <img
+              src="/src/assets/map-preview.png"
+              alt="Map View"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Button className="bg-primary/90 hover:bg-primary shadow-lg gap-2 pointer-events-none">
+                <MapPin className="h-4 w-4" />
+                Show on Map
+              </Button>
             </div>
-            <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${locationOpen ? 'rotate-180' : ''}`} />
-          </CollapsibleTrigger>
-          <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-            <div className="space-y-2 pt-2 pb-4">
-              {currentProvinceZones.map((zone) => (
-                <div
-                  key={zone.id}
-                  className={`flex items-start gap-3 p-2 rounded-lg border cursor-pointer transition-all ${
-                    selectedZones.includes(zone.id)
-                      ? 'border-primary bg-primary/5'
-                      : 'border-border hover:border-primary/50 hover:bg-muted/50'
-                  }`}
-                  onClick={() => toggleZone(zone.id)}
-                >
+          </div>
+        </div>
+      )}
+
+      {isMobile && (
+        <div className="p-4 border-b border-border flex items-center justify-between sticky top-0 bg-background z-10">
+          <h3 className="font-bold text-lg">Filters</h3>
+          <Button variant="ghost" size="icon" onClick={onClose}>
+            <X className="w-5 h-5" />
+          </Button>
+        </div>
+      )}
+
+      <ScrollArea className="flex-1 p-4">
+        <div className="space-y-6">
+
+          {/* Popular Filters */}
+          <div>
+            <h4 className="font-semibold mb-3 text-sm">Popular Filters</h4>
+            <div className="space-y-2">
+              {[
+                { label: "Free Cancellation", value: "free_cancellation" },
+                { label: "Breakfast Included", value: "breakfast_included" },
+                { label: "Pool", value: "pool" },
+                { label: "Spa", value: "spa" }
+              ].map((opt) => (
+                <div key={opt.value} className="flex items-center space-x-2">
                   <Checkbox
-                    checked={selectedZones.includes(zone.id)}
-                    onCheckedChange={() => toggleZone(zone.id)}
-                    className="mt-0.5"
+                    id={`pop-${opt.value}`}
+                    checked={amenities.includes(opt.label)}
+                    onCheckedChange={() => toggleFilter(opt.label, amenities, setAmenities)}
                   />
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-foreground">{zone.name}</p>
-                    <p className="text-xs text-muted-foreground">{zone.description}</p>
-                  </div>
+                  <label htmlFor={`pop-${opt.value}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
+                    {opt.label}
+                  </label>
                 </div>
               ))}
             </div>
-          </CollapsibleContent>
-        </Collapsible>
-      )}
+          </div>
 
-      {selectedProvince && currentProvinceZones.length > 0 && <Separator className="my-4" />}
+          <Separator />
 
-      <Separator className="my-4" />
-
-      {/* Sort By */}
-      <Collapsible open={sortOpen} onOpenChange={setSortOpen}>
-        <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
-          <h4 className="font-medium text-foreground">Sort By</h4>
-          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${sortOpen ? 'rotate-180' : ''}`} />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <RadioGroup value={sortBy} onValueChange={setSortBy} className="space-y-2 pt-2 pb-4">
-            {sortOptions.map((option) => (
-              <div key={option.value} className="flex items-center space-x-2">
-                <RadioGroupItem value={option.value} id={option.value} />
-                <Label htmlFor={option.value} className="text-sm cursor-pointer">
-                  {option.label}
-                </Label>
-              </div>
-            ))}
-          </RadioGroup>
-        </CollapsibleContent>
-      </Collapsible>
-
-      <Separator className="my-4" />
-
-      {/* Price Range */}
-      <Collapsible open={priceOpen} onOpenChange={setPriceOpen}>
-        <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
-          <h4 className="font-medium text-foreground">Price Range</h4>
-          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${priceOpen ? 'rotate-180' : ''}`} />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <div className="pt-2 pb-4">
+          {/* Price Range */}
+          <div>
+            <h4 className="font-semibold mb-3 text-sm">Price Range (Per Night)</h4>
             <Slider
               value={priceRange}
-              onValueChange={(value) => setPriceRange(value as [number, number])}
-              max={4000}
-              min={0}
-              step={10}
-              className="mb-2"
+              min={PRICE_MIN}
+              max={PRICE_MAX}
+              step={25}
+              onValueChange={setPriceRange}
+              className="mb-4"
             />
-            <div className="flex items-center justify-between text-sm text-muted-foreground">
-              <span>${priceRange[0]}</span>
-              <span>${priceRange[1]}+</span>
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <div className="flex-1">
+                <label className="text-xs text-muted-foreground block mb-1">Min</label>
+                <Input
+                  type="number"
+                  value={priceRange[0]}
+                  onChange={(e) => updateMinPrice(Number(e.target.value) || PRICE_MIN)}
+                  min={PRICE_MIN}
+                  max={PRICE_MAX}
+                />
+              </div>
+              <span className="text-muted-foreground mt-6">to</span>
+              <div className="flex-1">
+                <label className="text-xs text-muted-foreground block mb-1">Max</label>
+                <Input
+                  type="number"
+                  value={priceRange[1]}
+                  onChange={(e) => updateMaxPrice(Number(e.target.value) || PRICE_MAX)}
+                  min={PRICE_MIN}
+                  max={PRICE_MAX}
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {pricePresets.map(([min, max]) => (
+                <Button
+                  key={`${min}-${max}`}
+                  variant="outline"
+                  size="sm"
+                  className={`rounded-full ${priceRange[0] === min && priceRange[1] === max ? 'border-primary text-primary' : ''}`}
+                  onClick={() => setPriceRange([min, max])}
+                >
+                  ${min} - ${max}
+                </Button>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className={`rounded-full ${priceRange[0] === PRICE_MIN && priceRange[1] === PRICE_MAX ? 'border-primary text-primary' : ''}`}
+                onClick={() => setPriceRange([PRICE_MIN, PRICE_MAX])}
+              >
+                Any
+              </Button>
             </div>
           </div>
-        </CollapsibleContent>
-      </Collapsible>
 
-      <Separator className="my-4" />
+          <Separator />
 
-      {/* Star Rating */}
-      <Collapsible open={starsOpen} onOpenChange={setStarsOpen}>
-        <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
-          <h4 className="font-medium text-foreground">Star Rating</h4>
-          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${starsOpen ? 'rotate-180' : ''}`} />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <div className="flex flex-wrap gap-2 pt-2 pb-4">
-            {[5, 4, 3, 2, 1].map((star) => (
-              <Button
-                key={star}
-                variant={selectedStars.includes(star) ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => toggleStar(star)}
-                className="flex items-center gap-1"
-              >
-                {star}
-                <Star className="h-3 w-3 fill-current" />
-              </Button>
-            ))}
+          {/* Star Rating */}
+          <div>
+            <h4 className="font-semibold mb-3 text-sm">Star Rating</h4>
+            <div className="flex flex-col gap-2">
+              {[5, 4, 3, 2].map((star) => (
+                <div key={star} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={`star-${star}`}
+                    checked={stars.includes(star)}
+                    onCheckedChange={() => toggleFilter(star, stars, setStars)}
+                  />
+                  <label htmlFor={`star-${star}`} className="flex items-center cursor-pointer flex-1">
+                    <div className="flex items-center">
+                      {Array.from({ length: star }).map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
-        </CollapsibleContent>
-      </Collapsible>
 
-      <Separator className="my-4" />
+          <Separator />
 
-      {/* Property Type */}
-      <Collapsible open={propertyOpen} onOpenChange={setPropertyOpen}>
-        <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
-          <h4 className="font-medium text-foreground">Property Type</h4>
-          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${propertyOpen ? 'rotate-180' : ''}`} />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <div className="space-y-3 pt-2 pb-4">
-            {propertyTypes.map((type) => (
-              <div key={type} className="flex items-center space-x-2">
-                <Checkbox
-                  id={type}
-                  checked={selectedPropertyTypes.includes(type)}
-                  onCheckedChange={() => togglePropertyType(type)}
-                />
-                <Label htmlFor={type} className="text-sm cursor-pointer">
-                  {type}
-                </Label>
+          {/* Guest Rating */}
+          <div>
+            <h4 className="font-semibold mb-3 text-sm">Guest Rating</h4>
+            <div className="space-y-2">
+              {[
+                { val: 4.5, label: "Excellent 4.5+" },
+                { val: 4.0, label: "Very Good 4.0+" },
+                { val: 3.5, label: "Good 3.5+" }
+              ].map((opt) => (
+                <div key={opt.val} className="flex items-center space-x-2">
+                  <div
+                    className={`w-4 h-4 rounded-full border border-primary flex items-center justify-center cursor-pointer ${guestRating === opt.val ? 'bg-primary' : ''}`}
+                    onClick={() => setGuestRating(guestRating === opt.val ? null : opt.val)}
+                  >
+                    {guestRating === opt.val && <div className="w-2 h-2 rounded-full bg-white" />}
+                  </div>
+                  <label className="text-sm cursor-pointer" onClick={() => setGuestRating(guestRating === opt.val ? null : opt.val)}>
+                    {opt.label}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Location / Zones */}
+          {availableZones.length > 0 && (
+            <>
+              <Separator />
+              <div>
+                <h4 className="font-semibold mb-3 text-sm">Neighborhood / Area</h4>
+                <div className="space-y-2">
+                  {availableZones.map((zone) => (
+                    <div key={zone.id} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={`zone-${zone.id}`}
+                        checked={zones.includes(zone.id)}
+                        onCheckedChange={() => toggleFilter(zone.id, zones, setZones)}
+                      />
+                      <label htmlFor={`zone-${zone.id}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
+                        {zone.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </>
+          )}
+
+          <Separator />
+
+          {/* Property Type */}
+          <div>
+            <h4 className="font-semibold mb-3 text-sm">Property Type</h4>
+            <div className="space-y-2">
+              {["Hotel", "Resort", "Apartment", "Villa", "Guesthouse"].map((type) => (
+                <div key={type} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={`type-${type}`}
+                    checked={propertyTypes.includes(type)}
+                    onCheckedChange={() => toggleFilter(type, propertyTypes, setPropertyTypes)}
+                  />
+                  <label htmlFor={`type-${type}`} className="text-sm font-medium cursor-pointer">
+                    {type}
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
-        </CollapsibleContent>
-      </Collapsible>
 
-      <Separator className="my-4" />
+          <Separator />
 
-      {/* Amenities */}
-      <Collapsible open={amenitiesOpen} onOpenChange={setAmenitiesOpen}>
-        <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
-          <h4 className="font-medium text-foreground">Amenities</h4>
-          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${amenitiesOpen ? 'rotate-180' : ''}`} />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <div className="space-y-3 pt-2 pb-4">
-            {amenitiesList.map((amenity) => (
-              <div key={amenity} className="flex items-center space-x-2">
-                <Checkbox
-                  id={amenity}
-                  checked={selectedAmenities.includes(amenity)}
-                  onCheckedChange={() => toggleAmenity(amenity)}
-                />
-                <Label htmlFor={amenity} className="text-sm cursor-pointer">
-                  {amenity}
-                </Label>
-              </div>
-            ))}
+          {/* Payment Type */}
+          <div>
+            <h4 className="font-semibold mb-3 text-sm">Payment Type</h4>
+            <div className="space-y-2">
+              {["Free Cancellation", "No Prepayment Needed", "Pay at Hotel"].map((pay) => (
+                <div key={pay} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={`pay-${pay}`}
+                    checked={paymentTypes.includes(pay)}
+                    onCheckedChange={() => toggleFilter(pay, paymentTypes, setPaymentTypes)}
+                  />
+                  <label htmlFor={`pay-${pay}`} className="text-sm font-medium cursor-pointer">
+                    {pay}
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
-        </CollapsibleContent>
-      </Collapsible>
 
-      <Separator className="my-4" />
+        </div>
+      </ScrollArea>
 
-      {/* Action Buttons */}
-      <div className="flex gap-3 pt-2">
-        <Button variant="outline" onClick={handleClearFilters} className="flex-1">
-          Clear All
-        </Button>
-        <Button onClick={handleApplyFilters} className="flex-1">
-          Apply Filters
-        </Button>
-      </div>
+      {isMobile && (
+        <div className="p-4 border-t border-border bg-background sticky bottom-0">
+          <Button className="w-full" onClick={onClose}>Show Results</Button>
+        </div>
+      )}
     </div>
   );
 };

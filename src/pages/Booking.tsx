@@ -53,7 +53,7 @@ const Booking = () => {
 
   if (!hotel || !room) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background pt-14">
         <Header />
         <div className="container flex min-h-[60vh] flex-col items-center justify-center px-4">
           <h1 className="mb-4 text-2xl font-bold text-foreground">Booking not found</h1>
@@ -107,7 +107,7 @@ const Booking = () => {
 
   if (step === 'confirmation') {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background pt-14">
         <Header />
         <main className="container px-4 py-16">
           <div className="mx-auto max-w-2xl text-center">
@@ -167,7 +167,7 @@ const Booking = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-14">
       <Header />
 
       <main className="container px-4 py-8">
