@@ -1,4 +1,5 @@
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
+import { useState, useRef } from 'react';
 import { Star, MapPin, Share, Heart, Check, Wifi, Car, Utensils, Waves, Dumbbell, Coffee } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -26,6 +27,8 @@ const amenityIcons: Record<string, React.ComponentType<{ className?: string }>> 
 const HotelDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [highlightRooms, setHighlightRooms] = useState(false);
+  const roomsSectionRef = useRef<HTMLDivElement>(null);
   const [searchParams] = useSearchParams();
   const hotel = getHotelById(id || '');
 
@@ -162,7 +165,9 @@ const HotelDetails = () => {
 
             {/* Rooms */}
             <div className="mb-8" id="rooms">
-              <RoomList rooms={hotel.roomTypes} onBook={handleBookRoom} />
+              <div ref={roomsSectionRef}>
+                <RoomList rooms={hotel.roomTypes} onBook={handleBookRoom} highlight={highlightRooms} />
+              </div>
             </div>
 
             <Separator className="my-8" />
@@ -189,7 +194,19 @@ const HotelDetails = () => {
               <Button
                 className="mb-3 w-full rounded-full"
                 size="lg"
-                onClick={() => hotel.roomTypes[0] && handleBookRoom(hotel.roomTypes[0], mealPlans[0])}
+                onClick={() => {
+                  // Scroll to rooms section and highlight
+                  if (roomsSectionRef.current) {
+                    roomsSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setHighlightRooms(true);
+                    setTimeout(() => setHighlightRooms(false), 3000);
+                    toast({
+                      title: 'Please Select a Room',
+                      description: 'Choose a room type to continue with your booking.',
+                      variant: 'default',
+                    });
+                  }
+                }}
               >
                 Book Now
               </Button>

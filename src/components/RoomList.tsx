@@ -15,9 +15,10 @@ import { Separator } from '@/components/ui/separator';
 interface RoomListProps {
     rooms: RoomType[];
     onBook: (room: RoomType, mealPlan: MealPlan) => void;
+    highlight?: boolean;
 }
 
-const RoomList = ({ rooms, onBook }: RoomListProps) => {
+const RoomList = ({ rooms, onBook, highlight = false }: RoomListProps) => {
     return (
         <div id="rooms" className="space-y-6">
             <h2 className="text-2xl font-bold">Available Rooms</h2>
@@ -75,7 +76,10 @@ const RoomList = ({ rooms, onBook }: RoomListProps) => {
                                             <span className="block text-2xl font-bold text-blue-600">${room.price}</span>
                                             <span className="text-xs text-muted-foreground">Includes taxes & fees</span>
                                         </div>
-                                        <Button onClick={() => onBook(room, mealPlans[1])}>
+                                        <Button
+                                            onClick={() => onBook(room, mealPlans[1])}
+                                            className={highlight ? 'animate-pulse border-4 border-[#F1C40F] shadow-lg shadow-[#F1C40F]/50' : ''}
+                                        >
                                             Select Room
                                         </Button>
                                         <div className="text-xs text-red-500 font-medium">
@@ -110,7 +114,12 @@ const RoomList = ({ rooms, onBook }: RoomListProps) => {
                                     <span className="block text-2xl font-bold text-primary">${room.price}</span>
                                     <span className="text-xs text-muted-foreground">Per night</span>
                                 </div>
-                                <Button onClick={() => onBook(room, mealPlans[1])}>Select</Button>
+                                <Button
+                                    onClick={() => onBook(room, mealPlans[1])}
+                                    className={highlight ? 'animate-pulse border-4 border-[#F1C40F] shadow-lg shadow-[#F1C40F]/50' : ''}
+                                >
+                                    Select
+                                </Button>
                             </div>
                         </div>
                     </div>

@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import MapSearch from "./pages/MapSearch";
 import OwnerDashboard from "./pages/OwnerDashboard";
+import Checkout from "./pages/Checkout";
 
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
               <Route path="/bookings" element={<MyBookings />} />
               <Route path="/login" element={<Login />} />
               <Route path="/map-search" element={<MapSearch />} />
+              <Route path="/checkout/:hotelId" element={<Checkout />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

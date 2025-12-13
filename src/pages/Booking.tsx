@@ -93,15 +93,17 @@ const Booking = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Simulate validation
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     setIsSubmitting(false);
-    setStep('confirmation');
-    
+
+    // Navigate to checkout page for payment
+    navigate(`/checkout/${hotel.id}`);
+
     toast({
-      title: 'Booking Confirmed!',
-      description: `Your booking at ${hotel.name} has been confirmed.`,
+      title: 'Proceeding to Payment',
+      description: `Redirecting to secure checkout...`,
     });
   };
 
@@ -282,7 +284,6 @@ const Booking = () => {
                         id="guests"
                         name="guests"
                         type="number"
-                        min="1"
                         max={room.capacity * parseInt(formData.rooms)}
                         value={formData.guests}
                         onChange={handleInputChange}
