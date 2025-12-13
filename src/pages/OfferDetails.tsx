@@ -202,12 +202,20 @@ const OfferDetails = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {hotelsForOffer.map((hotel) => (
               <Card key={hotel.id} className="h-full border-border/60 shadow-sm hover:-translate-y-1 transition-transform bg-white/90 overflow-hidden">
-                <div className="h-40 w-full overflow-hidden">
-                  <img src={hotel.images[0]} alt={hotel.name} className="w-full h-full object-cover" />
-                </div>
+                <Link to={`/hotel/${hotel.id}`} className="block h-40 w-full overflow-hidden">
+                  <img
+                    src={hotel.images[0]}
+                    alt={hotel.name}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </Link>
                 <CardContent className="p-5 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-foreground line-clamp-2">{hotel.name}</h3>
+                    <Link to={`/hotel/${hotel.id}`} className="group/link">
+                      <h3 className="text-lg font-semibold text-foreground line-clamp-2 group-hover/link:text-primary transition-colors">
+                        {hotel.name}
+                      </h3>
+                    </Link>
                     <Badge className="bg-primary/10 text-primary border-primary/20">{hotel.city}</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{hotel.description}</p>
