@@ -28,9 +28,10 @@ const Index = () => {
       <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://thebettercambodia.com/wp-content/uploads/2025/02/Angkor-Wat.jpg"
+            src="https://images.unsplash.com/photo-1599283787923-51b965a58b05?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5na29yJTIwd2F0fGVufDB8fDB8fHww"
             alt="Angkor Wat"
             className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 65%' }}
           />
           <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
           <div className="absolute inset-0 bg-black/20" />
