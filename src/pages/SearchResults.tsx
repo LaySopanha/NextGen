@@ -175,10 +175,10 @@ const SearchResults = () => {
           {/* Results List */}
           <div
             ref={hotelListRef}
-            className="min-w-0 h-full overflow-y-auto no-scrollbar py-6 pl-2"
+            className="min-w-0 h-full overflow-y-auto no-scrollbar py-6 pl-2 flex flex-col"
           >
             {/* Results Header */}
-            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:flex-wrap md:gap-4">
+            <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:flex-wrap md:gap-4">
               <div className="min-w-0">
                 <h1 className="text-2xl font-bold text-foreground">
                   {filters.province || locationQuery
@@ -237,47 +237,49 @@ const SearchResults = () => {
                   </Button>
                 </div>
               </div>
+            </div>
 
-              {/* Active Filters */}
-              {hasActiveFilters && (
-                <div className="mb-6 flex flex-wrap items-center gap-2">
-                  <span className="text-sm text-muted-foreground">Active filters:</span>
-                  {filters.amenities.map((amenity) => (
-                    <Button
-                      key={amenity}
-                      variant="secondary"
-                      size="sm"
-                      className="gap-1 rounded-full"
-                      onClick={() => setFilters(prev => ({
-                        ...prev,
-                        amenities: prev.amenities.filter(a => a !== amenity)
-                      }))}
-                    >
-                      {amenity}
-                      <X className="h-3 w-3" />
-                    </Button>
-                  ))}
+            {/* Active Filters */}
+            {hasActiveFilters && (
+              <div className="mb-6 flex flex-wrap items-center gap-2">
+                <span className="text-sm text-muted-foreground">Active filters:</span>
+                {filters.amenities.map((amenity) => (
                   <Button
-                    variant="ghost"
+                    key={amenity}
+                    variant="secondary"
                     size="sm"
-                    className="text-primary"
-                    onClick={() => setFilters({
-                      priceRange: [0, 4000],
-                      amenities: [],
-                      stars: [],
-                      propertyTypes: [],
-                      sortBy: 'rating-high',
-                      province: locationQuery,
-                      zones: [],
-                      guestRating: null,
-                      paymentTypes: []
-                    })}
+                    className="gap-1 rounded-full"
+                    onClick={() => setFilters(prev => ({
+                      ...prev,
+                      amenities: prev.amenities.filter(a => a !== amenity)
+                    }))}
                   >
-                    Clear all
+                    {amenity}
+                    <X className="h-3 w-3" />
                   </Button>
-                </div>
-              )}
+                ))}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-primary"
+                  onClick={() => setFilters({
+                    priceRange: [0, 4000],
+                    amenities: [],
+                    stars: [],
+                    propertyTypes: [],
+                    sortBy: 'rating-high',
+                    province: locationQuery,
+                    zones: [],
+                    guestRating: null,
+                    paymentTypes: []
+                  })}
+                >
+                  Clear all
+                </Button>
+              </div>
+            )}
 
+            <div className="flex-1">
               {filteredHotels.length > 0 ? (
                 <div
                   className={
@@ -291,7 +293,7 @@ const SearchResults = () => {
                   ))}
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="flex h-full w-full flex-col items-center justify-center py-16 text-center">
                   <div className="mb-4 text-6xl">🏨</div>
                   <h3 className="mb-2 text-xl font-semibold text-foreground">No hotels found</h3>
                   <p className="mb-6 text-muted-foreground">
@@ -316,38 +318,38 @@ const SearchResults = () => {
                   </Button>
                 </div>
               )}
+            </div>
 
-              <div className="mt-8">
-                <Footer />
-              </div>
+            <div className="mt-8">
+              <Footer />
             </div>
           </div>
         </div>
-
-        {/* Mobile Floating Map Button - Navigates to Map Page */}
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 lg:hidden">
-          <Button
-            onClick={() => window.location.href = `/map-search?${searchParams.toString()}`}
-            className="rounded-full shadow-lg bg-slate-900 text-white px-6 py-6 font-bold flex items-center gap-2 hover:bg-slate-800 hover:scale-105 transition-all text-sm"
-          >
-            <MapPin className="w-4 h-4" />
-            Map View
-          </Button>
-        </div>
-
-        {/* Map Modal */}
-        <Dialog open={showMap} onOpenChange={setShowMap}>
-          <DialogContent className="max-w-[95vw] h-[90vh] w-full p-0 overflow-hidden flex flex-col">
-            <div className="p-4 border-b flex items-center justify-between">
-              <h2 className="text-xl font-bold">Map View</h2>
-              {/* Standard Close button is built-in to DialogContent, usually */}
-            </div>
-            <div className="flex-1 relative">
-              <HotelMap hotels={filteredHotels} />
-            </div>
-          </DialogContent>
-        </Dialog>
       </div>
+
+      {/* Mobile Floating Map Button - Navigates to Map Page */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 lg:hidden">
+        <Button
+          onClick={() => window.location.href = `/map-search?${searchParams.toString()}`}
+          className="rounded-full shadow-lg bg-slate-900 text-white px-6 py-6 font-bold flex items-center gap-2 hover:bg-slate-800 hover:scale-105 transition-all text-sm"
+        >
+          <MapPin className="w-4 h-4" />
+          Map View
+        </Button>
+      </div>
+
+      {/* Map Modal */}
+      <Dialog open={showMap} onOpenChange={setShowMap}>
+        <DialogContent className="max-w-[95vw] h-[90vh] w-full p-0 overflow-hidden flex flex-col">
+          <div className="p-4 border-b flex items-center justify-between">
+            <h2 className="text-xl font-bold">Map View</h2>
+            {/* Standard Close button is built-in to DialogContent, usually */}
+          </div>
+          <div className="flex-1 relative">
+            <HotelMap hotels={filteredHotels} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
