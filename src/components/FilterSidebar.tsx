@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import mapPreview from '@/assets/map-preview.png';
 import { Search, MapPin, X, Check, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
@@ -8,6 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNavigate } from 'react-router-dom';
 import { provinceZones } from '@/data/hotels';
+import mapPreviewImg from '@/assets/map-preview.png';
 
 interface FilterSidebarProps {
   onFiltersChange: (filters: any) => void;
@@ -108,7 +110,7 @@ const FilterSidebar = ({ onFiltersChange, onClose, isMobile, initialProvince, on
             }}
           >
             <img
-              src="/src/assets/map-preview.png"
+              src={mapPreviewImg}
               alt="Map View"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
