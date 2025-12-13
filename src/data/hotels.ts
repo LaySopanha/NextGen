@@ -141,7 +141,7 @@ export const destinations: Destination[] = [
     name: 'Siem Reap',
     country: 'Cambodia',
     image: siemReapImg,
-    hotelCount: 342,
+    hotelCount: 6,
     description: 'Home to the magnificent Angkor Wat temple complex'
   },
   {
@@ -149,7 +149,7 @@ export const destinations: Destination[] = [
     name: 'Phnom Penh',
     country: 'Cambodia',
     image: phnomPenhImg,
-    hotelCount: 215,
+    hotelCount: 5,
     description: 'The vibrant capital city along the Mekong River'
   },
   {
@@ -157,7 +157,7 @@ export const destinations: Destination[] = [
     name: 'Sihanoukville',
     country: 'Cambodia',
     image: sihanoukvilleImg,
-    hotelCount: 156,
+    hotelCount: 4,
     description: 'Beautiful beaches and tropical island getaways'
   },
   {
@@ -165,7 +165,7 @@ export const destinations: Destination[] = [
     name: 'Kampot',
     country: 'Cambodia',
     image: kampotImg,
-    hotelCount: 89,
+    hotelCount: 3,
     description: 'Riverside charm, pepper plantations, and Bokor Mountain'
   },
   {
@@ -173,7 +173,7 @@ export const destinations: Destination[] = [
     name: 'Battambang',
     country: 'Cambodia',
     image: battambangImg,
-    hotelCount: 45,
+    hotelCount: 3,
     description: 'Colonial charm and authentic Cambodian culture'
   },
   {
@@ -181,7 +181,7 @@ export const destinations: Destination[] = [
     name: 'Kep',
     country: 'Cambodia',
     image: 'https://www.indochinavoyages.com/wp-content/uploads/2019/11/kep_cambodia.jpg',
-    hotelCount: 32,
+    hotelCount: 3,
     description: 'Coastal town known for crabs'
   },
   {
@@ -189,7 +189,7 @@ export const destinations: Destination[] = [
     name: 'Koh Kong',
     country: 'Cambodia',
     image: 'https://www.asiakingtravel.com/cuploads/files/Koh-Kong-1(1).jpg',
-    hotelCount: 18,
+    hotelCount: 1,
     description: 'Eco-tourism and waterfalls'
   },
   {
@@ -197,7 +197,7 @@ export const destinations: Destination[] = [
     name: 'Mondulkiri',
     country: 'Cambodia',
     image: 'https://www.greeneratravel.com/userfiles/850bousrawaterfall.jpg',
-    hotelCount: 15,
+    hotelCount: 1,
     description: 'Elephants and rolling hills'
   },
   {
@@ -205,7 +205,7 @@ export const destinations: Destination[] = [
     name: 'Ratanakiri',
     country: 'Cambodia',
     image: 'https://lh6.googleusercontent.com/proxy/777hqkVb_NVAycLnawF4SkvEsRGkUXSUX9qJKrd9KqOf2RkuwKiXQVMYmAsZwM1gfYoDxiMHgUmtPK4OiOthFzvNRJ9sXs1-aNPk7ej0tsMM62ftGvdEVW6TSkx5SU-cC2RMaJDga8YXN24Mim3mxA-8nnZVU2AHzVil4DcU5tv2',
-    hotelCount: 12,
+    hotelCount: 1,
     description: 'Volcanic lakes and trekking'
   },
   {
@@ -213,7 +213,7 @@ export const destinations: Destination[] = [
     name: 'Kampong Cham',
     country: 'Cambodia',
     image: 'https://www.asiakingtravel.com/cuploads/files/Kampong-Cham-1(1).jpg',
-    hotelCount: 10,
+    hotelCount: 1,
     description: 'Mekong river life'
   },
   {
@@ -221,7 +221,7 @@ export const destinations: Destination[] = [
     name: 'Kampong Thom',
     country: 'Cambodia',
     image: 'https://www.vivutravel.com/images/des-cambodia3/kampong-thom-travel-guide.jpg',
-    hotelCount: 8,
+    hotelCount: 0,
     description: 'Sambor Prei Kuk temples'
   },
   {
@@ -229,7 +229,7 @@ export const destinations: Destination[] = [
     name: 'Preah Vihear',
     country: 'Cambodia',
     image: 'https://res.klook.com/image/upload/w_750,h_469,c_fill,q_85/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/w4gaxj3iaysci0tb0dke.jpg',
-    hotelCount: 5,
+    hotelCount: 1,
     description: 'Mountain top temple'
   },
   {
@@ -237,7 +237,7 @@ export const destinations: Destination[] = [
     name: 'Kratie',
     country: 'Cambodia',
     image: 'https://angkorfocus.com/userfiles/kratie-2.jpg',
-    hotelCount: 7,
+    hotelCount: 0,
     description: 'Irrawaddy Dolphins'
   },
   {
@@ -245,7 +245,7 @@ export const destinations: Destination[] = [
     name: 'Stung Treng',
     country: 'Cambodia',
     image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/ea/74/da/stung-treng-province.jpg?w=1400&h=1400&s=1',
-    hotelCount: 4,
+    hotelCount: 0,
     description: 'Mekong rapids'
   },
   {
@@ -253,7 +253,7 @@ export const destinations: Destination[] = [
     name: 'Takeo',
     country: 'Cambodia',
     image: 'https://www.asiakingtravel.com/cuploads/images/Cambodia/takeo-1.jpg',
-    hotelCount: 5,
+    hotelCount: 0,
     description: 'Ancient history'
   },
   {
@@ -261,7 +261,7 @@ export const destinations: Destination[] = [
     name: 'Banteay Meanchey',
     country: 'Cambodia',
     image: 'https://www.asiakingtravel.com/cuploads/files/Banteay%20Meanchey%20-%202.jpg',
-    hotelCount: 8,
+    hotelCount: 0,
     description: 'Border province'
   },
   {
@@ -269,7 +269,7 @@ export const destinations: Destination[] = [
     name: 'Pailin',
     country: 'Cambodia',
     image: 'https://i0.wp.com/www.cambodialifestyle.com/wp-content/uploads/2024/04/pailin-1.jpg?fit=785%2C475&ssl=1',
-    hotelCount: 3,
+    hotelCount: 0,
     description: 'Cardamom mountains'
   },
   {
@@ -277,7 +277,7 @@ export const destinations: Destination[] = [
     name: 'Tbong Khmum',
     country: 'Cambodia',
     image: 'https://i0.wp.com/www.cambodialifestyle.com/wp-content/uploads/2024/04/Tbong-Khmum-1.jpg?fit=750%2C440&ssl=1',
-    hotelCount: 2,
+    hotelCount: 0,
     description: 'Eastern plains'
   },
   {
@@ -285,7 +285,7 @@ export const destinations: Destination[] = [
     name: 'Prey Veng',
     country: 'Cambodia',
     image: 'https://construction-property.com/wp-content/uploads/2018/05/chinese-firm-to-build-a-new-300-hectare-satellite-city-in-prey-veng.jpg',
-    hotelCount: 4,
+    hotelCount: 0,
     description: 'Agriculture heartland'
   },
   {
@@ -293,7 +293,7 @@ export const destinations: Destination[] = [
     name: 'Svay Rieng',
     country: 'Cambodia',
     image: 'https://i0.wp.com/www.cambodialifestyle.com/wp-content/uploads/2024/04/Svay-Rieng-5.jpg?fit=1000%2C719&ssl=1',
-    hotelCount: 5,
+    hotelCount: 0,
     description: 'Border trade'
   }
 ];
@@ -313,9 +313,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Resort',
     images: [
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/41/0b/luxurious-garden.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/3e/fd/pool-by-night.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/3d/0c/opera-suite-living-room.jpg?w=800&h=-1&s=1'
+      'https://ak-d.tripcdn.com/images/0205n120008jh97pd8228_R_960_660_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/0201g120008jh9ht967A6_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/200b1e000001flw6g2FD1_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/02042120008uk3qokD7A0_R_339_206_R5_D.jpg'
     ],
     amenities: ['Largest Pool', 'Golf Course', 'So Spa', '5 Restaurants', 'Free WiFi', 'Kids Club', 'Tennis', 'Gym'],
     roomTypes: [
@@ -327,7 +328,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed or 2 Twin Beds',
         size: 36,
         amenities: ['Garden View', 'Air Conditioning', 'Mini Bar', 'Safe'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/3d/0c/opera-suite-living-room.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/0201b120008ced42xEF47_R_200_100_R5.webp',
         available: 8
       },
       {
@@ -338,7 +339,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 42,
         amenities: ['Garden View', 'Balcony', 'Bathtub', 'Mini Bar'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/3d/0c/opera-suite-living-room.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/02024120008cee4l8B9A7_R_200_100_R5.webp',
         available: 5
       },
       {
@@ -349,7 +350,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 68,
         amenities: ['Pool View', 'Living Room', 'Jacuzzi', 'Club Access'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/3d/0c/opera-suite-living-room.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/200313000000u1yl0B129_R_200_100_R5.webp',
         available: 3
       },
       {
@@ -360,7 +361,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed + Sofa Bed',
         size: 84,
         amenities: ['Pool View', 'Living Room', 'Jacuzzi', 'Butler Service', 'Private Dining'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d1/3d/0c/opera-suite-living-room.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/20041b000001ats577E7C_R_200_100_R5.webp',
         available: 2
       }
     ],
@@ -393,9 +394,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Boutique',
     images: [
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800'
+      'https://ak-d.tripcdn.com/images/200s0q000000ga9skAB2E_R_960_660_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/0201t1200093qfa5m1122_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/200v1c000001ch1lz964F_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/0222r12000amspsvs4CE1_R_339_206_R5_D.jpg'
     ],
     amenities: ['2 Pools', 'Spa', 'Restaurant', 'Free WiFi', 'Airport Transfer', 'Bicycle Rental', 'River Views'],
     roomTypes: [
@@ -407,7 +409,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 45,
         amenities: ['Garden View', 'Rain Shower', 'Mini Bar', 'Bathtub'],
-        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        image: 'https://ak-d.tripcdn.com/images/20030q000000g54co4AD5_R_200_100_R5.webp',
         available: 6
       },
       {
@@ -418,7 +420,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 65,
         amenities: ['River View', 'Private Balcony', 'Living Area', 'Butler Service'],
-        image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800',
+        image: 'https://ak-d.tripcdn.com/images/200s0q000000gaa502484_R_200_100_R5.webp',
         available: 3
       },
       {
@@ -429,7 +431,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 95,
         amenities: ['Private Pool', 'Garden', 'Outdoor Shower', 'Butler Service', 'Breakfast Included'],
-        image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0201t1200093qfa5m1122_R_200_100_R5.webp',
         available: 2
       }
     ],
@@ -462,9 +464,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Resort',
     images: [
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/af/ab/2b/borei-angkor-resort-spa.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/af/aa/f8/borei-angkor-resort-spa.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/af/aa/c5/borei-angkor-resort-spa.jpg?w=800&h=-1&s=1'
+      'https://ak-d.tripcdn.com/images/200715000000yhaj576D8_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/1mc3d12000f6sgixjD495_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/200j0r000000gp5um6914_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/1mc0212000b8n1be4E7EB_R_339_206_R5_D.jpg'
     ],
     amenities: ['Pool', 'Spa', 'Restaurant', 'Breakfast Included', 'Free WiFi', 'Gym', 'Temple Tours'],
     roomTypes: [
@@ -476,7 +479,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 32,
         amenities: ['City View', 'Air Conditioning', 'Safe', 'TV'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/af/aa/c5/borei-angkor-resort-spa.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/200f1e000001eu96k1330_R_690_360_R5.webp',
         available: 10
       },
       {
@@ -487,7 +490,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 38,
         amenities: ['Pool View', 'Air Conditioning', 'Mini Bar', 'Safe'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/af/aa/c5/borei-angkor-resort-spa.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/1mc1i12000f6rahy0ED4D_R_690_360_R5.webp',
         available: 8
       },
       {
@@ -498,7 +501,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed + Sofa Bed',
         size: 60,
         amenities: ['Garden View', 'Living Room', 'Bathtub', 'Balcony'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/af/aa/f8/borei-angkor-resort-spa.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/1mc6i12000p9a3i247B1D_R_690_360_R5.webp',
         available: 4
       }
     ],
@@ -531,9 +534,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Hotel',
     images: [
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800'
+      'https://ak-d.tripcdn.com/images/1mc0k12000in2ph62FA7E_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/0225012000azo9r7jE25D_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/200a1a00000190wmh9EC9_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/22041c000001czdd3AF65_R_600_400_R5.webp'
     ],
     amenities: ['2 Pools', 'Raffles Spa', 'Elephant Bar', 'Fine Dining', 'Free WiFi', 'Tennis Court', 'Butler Service'],
     roomTypes: [
@@ -545,7 +549,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 47,
         amenities: ['Garden View', 'Air Conditioning', 'Mini Bar', 'Bathtub'],
-        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0584x12000d9t4qjc2275_R_690_360_R5.webp',
         available: 12
       },
       {
@@ -556,7 +560,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 55,
         amenities: ['Pool Access', 'Private Terrace', 'Mini Bar', 'Outdoor Shower'],
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc5z12000bgs1vi23312_R_690_360_R5.webp',
         available: 6
       },
       {
@@ -567,7 +571,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 94,
         amenities: ['Pool View', 'Living Room', 'Butler Service', 'Private Balcony'],
-        image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0206k12000a3xfik218EA_R_690_360_R5.webp',
         available: 3
       },
       {
@@ -578,7 +582,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed + 2 Singles',
         size: 165,
         amenities: ['Panoramic Views', 'Dining Room', 'Butler Service', 'Private Garden', 'Jacuzzi'],
-        image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0221u12000azo8xe61649_R_690_360_R5.webp',
         available: 1
       }
     ],
@@ -611,9 +615,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Boutique',
     images: [
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
-      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800',
-      'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800'
+      'https://ak-d.tripcdn.com/images/1mc6j12000bederqi082F_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc1g12000bedew7f5525_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0224s12000p4v8svl005F_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc1712000bedeqn10871_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'Restaurant', 'Spa', 'Free WiFi', 'Traditional Shows', 'Garden'],
     roomTypes: [
@@ -625,7 +630,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 28,
         amenities: ['Garden View', 'Air Conditioning', 'Safe', 'TV'],
-        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc4l12000bedjr412990_R_200_100_R5.webp',
         available: 15
       },
       {
@@ -636,7 +641,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 40,
         amenities: ['Lotus Pond View', 'Private Terrace', 'Mini Bar', 'Bathtub'],
-        image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc5e12000bedjjgc7F48_R_200_100_R5.webp',
         available: 8
       },
       {
@@ -647,7 +652,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 55,
         amenities: ['Private Garden', 'Outdoor Shower', 'Living Area', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc6f12000bedigy3D82E_R_200_100_R5.webp',
         available: 4
       }
     ],
@@ -680,9 +685,10 @@ export const hotels: Hotel[] = [
     stars: 2,
     propertyType: 'Guesthouse',
     images: [
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
-      'https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?w=800',
-      'https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800'
+      'https://ak-d.tripcdn.com/images/0227312000kz1jghn7775_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0224u120009zrbjvp1939_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0586712000l2jnj681906_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0222612000j98ahlzA08E_R_600_400_R5.webp'
     ],
     amenities: ['Free Breakfast', 'Free WiFi', 'Airport Pickup', 'Laundry', 'Bicycle Rental', 'Tours'],
     roomTypes: [
@@ -694,7 +700,7 @@ export const hotels: Hotel[] = [
         beds: '1 Single Bed',
         size: 6,
         amenities: ['Shared Bathroom', 'Locker', 'Fan'],
-        image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0223712000kz1j3kgDD4B_R_600_400_R5.webp',
         available: 12
       },
       {
@@ -705,7 +711,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 16,
         amenities: ['Fan', 'Private Bathroom', 'Hot Water'],
-        image: 'https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0225g12000kz1jg0mF69A_R_600_400_R5.webp',
         available: 6
       },
       {
@@ -716,7 +722,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 18,
         amenities: ['Air Conditioning', 'Private Bathroom', 'Hot Water', 'TV'],
-        image: 'https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0225q12000kz1j7o70E10_R_600_400_R5.webp',
         available: 8
       },
       {
@@ -727,7 +733,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double + 2 Singles',
         size: 28,
         amenities: ['Air Conditioning', 'Private Bathroom', 'Hot Water', 'TV', 'Balcony'],
-        image: 'https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0224r12000fkemywn2EAE_R_600_400_R5.webp',
         available: 3
       }
     ],
@@ -762,9 +768,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Hotel',
     images: [
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/9a/91/5e/palace-gate-hotel-resort.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/9a/91/4c/palace-gate-hotel-resort.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/9a/91/3a/palace-gate-hotel-resort.jpg?w=800&h=-1&s=1'
+      'https://ak-d.tripcdn.com/images/1mc5r12000nhjmh0nB50B_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc6x12000dxcczdgECF2_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/200o0t000000ij3ahF6C6_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/22010u000000jp3a9319C_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'Spa', 'Restaurant', 'Royal Palace Views', 'Free WiFi', 'Gym', 'Airport Transfer'],
     roomTypes: [
@@ -776,7 +783,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 28,
         amenities: ['City View', 'Air Conditioning', 'TV', 'Safe'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/9a/91/3a/palace-gate-hotel-resort.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/0201o1200090q9r4bC82F_R_200_100_R5.webp',
         available: 12
       },
       {
@@ -787,7 +794,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 35,
         amenities: ['City View', 'Air Conditioning', 'Rain Shower', 'Safe'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/9a/91/3a/palace-gate-hotel-resort.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/1mc4x12000erbi6r1AD36_R_200_100_R5.webp',
         available: 10
       },
       {
@@ -798,7 +805,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 55,
         amenities: ['Palace View', 'Living Area', 'Bathtub', 'Mini Bar'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1e/9a/91/4c/palace-gate-hotel-resort.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/1mc1q12000erbmeccA5E5_R_200_100_R5.webp',
         available: 5
       }
     ],
@@ -817,9 +824,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Hotel',
     images: [
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/d9/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/c7/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/b5/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1'
+      'https://ak-d.tripcdn.com/images/1mc1b12000bd2dj7v3C7A_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc5g12000i6plcxu3416_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc6112000i6pl8nqD92A_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/02056120009f3eis6533B_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'So Spa', 'Riverside Dining', 'Free WiFi', 'Gym', 'Royal Palace Views', 'Bar'],
     roomTypes: [
@@ -831,7 +839,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed or 2 Twin Beds',
         size: 35,
         amenities: ['City View', 'Air Conditioning', 'Rain Shower', 'Mini Bar'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/b5/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/0203k120009v8k5e527EF_R_690_360_R5.webp',
         available: 15
       },
       {
@@ -842,7 +850,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 40,
         amenities: ['River View', 'Balcony', 'Rain Shower', 'Mini Bar'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/b5/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/1mc6o12000o03479k5DD3_R_690_360_R5.webp',
         available: 10
       },
       {
@@ -853,7 +861,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 70,
         amenities: ['River View', 'Living Room', 'Bathtub', 'Club Access'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/c7/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/1mc3q12000o0300el4D8A_R_690_360_R5.webp',
         available: 4
       },
       {
@@ -864,7 +872,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed + Sofa Bed',
         size: 120,
         amenities: ['Panoramic River View', 'Dining Room', 'Butler Service', 'Jacuzzi', 'Private Bar'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/f1/b4/d9/sofitel-phnom-penh-phokeethra.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/0203k120009v8k5e527EF_R_690_360_R5.webp',
         available: 2
       }
     ],
@@ -883,9 +891,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Boutique',
     images: [
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/24/5e/the-pavilion.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/24/4c/the-pavilion.jpg?w=800&h=-1&s=1',
-      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/24/3a/the-pavilion.jpg?w=800&h=-1&s=1'
+      'https://ak-d.tripcdn.com/images/200j14000000vq31r1545_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/200u14000000vqk3fCA99_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0206f120009zpl6x58FF7_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0220z12000kwqndw23D9A_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'Garden', 'Restaurant', 'Free WiFi', 'Colonial Architecture', 'Quiet Location'],
     roomTypes: [
@@ -897,7 +906,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 30,
         amenities: ['Garden View', 'Air Conditioning', 'Safe', 'Mini Fridge'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/24/4c/the-pavilion.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/200j14000000vq31r1545_R_600_400_R5.webp',
         available: 8
       },
       {
@@ -908,7 +917,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 38,
         amenities: ['Pool View', 'Private Terrace', 'Air Conditioning', 'Mini Bar'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/24/3a/the-pavilion.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/200s14000000w69yz0C22_R_690_360_R5.webp',
         available: 5
       },
       {
@@ -919,7 +928,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 45,
         amenities: ['Pool Access', 'Private Terrace', 'Bathtub', 'Living Area'],
-        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/63/24/3a/the-pavilion.jpg?w=800&h=-1&s=1',
+        image: 'https://ak-d.tripcdn.com/images/200s14000000w69qsF560_R_690_360_R5.webp',
         available: 3
       }
     ],
@@ -938,9 +947,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Hotel',
     images: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800',
-      'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
-      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800'
+      'https://ak-d.tripcdn.com/images/1mc1f12000jn54o32E1CB_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/1mc2c12000atrplnsA62D_R_960_660_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/200t0p000000fzecu6442_R_339_206_R5_D.jpg',
+      'https://ak-d.tripcdn.com/images/02274120008c5il2lBD49_R_600_400_R5.webp'
     ],
     amenities: ['Infinity Pool', 'Sense Spa', 'Sky Bar', 'Fine Dining', 'Free WiFi', 'Gym', 'Butler Service'],
     roomTypes: [
@@ -952,7 +962,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 52,
         amenities: ['City View', 'Floor-to-Ceiling Windows', 'Rain Shower', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0202u120008t4bj8qFA8A_R_690_360_R5.webp',
         available: 20
       },
       {
@@ -963,7 +973,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 85,
         amenities: ['Panoramic Views', 'Living Room', 'Soaking Tub', 'Walk-in Closet'],
-        image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0200y120008t4bfqd5777_R_690_360_R5.webp',
         available: 8
       },
       {
@@ -974,7 +984,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 120,
         amenities: ['360 Views', 'Dining Room', 'Butler Service', 'Jacuzzi', 'Office'],
-        image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0202u120008t4bj8qFA8A_R_690_360_R5.webp',
         available: 3
       },
       {
@@ -985,7 +995,7 @@ export const hotels: Hotel[] = [
         beds: '2 King Beds',
         size: 240,
         amenities: ['Entire Floor', 'Private Kitchen', 'Personal Chef', 'Butler Service', 'Private Elevator'],
-        image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0205h120008t4bj8l32BA_R_690_360_R5.webp',
         available: 1
       }
     ],
@@ -1004,9 +1014,10 @@ export const hotels: Hotel[] = [
     stars: 2,
     propertyType: 'Guesthouse',
     images: [
-      'https://images.unsplash.com/photo-1520277739336-7bf67edfa768?w=800',
-      'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800',
-      'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800'
+      'https://ak-d.tripcdn.com/images/1mc5q12000bpwuk2k573A_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/02001120009ibhzjnE950_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/02038120009ibiz8s7438_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc0312000bpwy5ur5729_R_600_400_R5.webp'
     ],
     amenities: ['Rooftop Pool', 'Bar', 'Restaurant', 'Free WiFi', 'Tours', 'Events', 'Air Conditioning'],
     roomTypes: [
@@ -1018,7 +1029,7 @@ export const hotels: Hotel[] = [
         beds: '1 Bunk Bed',
         size: 8,
         amenities: ['Shared Bathroom', 'Locker', 'Air Conditioning', 'Reading Light'],
-        image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800',
+        image: 'https://ak-d.tripcdn.com/images/02038120009ibiz8s7438_R_600_400_R5.webp',
         available: 24
       },
       {
@@ -1029,7 +1040,7 @@ export const hotels: Hotel[] = [
         beds: '1 Bunk Bed',
         size: 8,
         amenities: ['Shared Bathroom', 'Locker', 'Air Conditioning', 'Privacy Curtain'],
-        image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc0w12000cmmtyqi05BA_R_690_360_R5.webp',
         available: 16
       },
       {
@@ -1040,7 +1051,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 14,
         amenities: ['Private Bathroom', 'Air Conditioning', 'TV', 'Safe'],
-        image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc7412000cmmtrmc79D4_R_690_360_R5.webp',
         available: 8
       },
       {
@@ -1051,7 +1062,7 @@ export const hotels: Hotel[] = [
         beds: '2 Single Beds',
         size: 18,
         amenities: ['Private Bathroom', 'Air Conditioning', 'TV', 'Mini Fridge', 'Balcony'],
-        image: 'https://images.unsplash.com/photo-1520277739336-7bf67edfa768?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc3312000b5n7u0r5E0A_R_690_360_R5.webp',
         available: 6
       }
     ],
@@ -1072,9 +1083,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
-      'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800',
-      'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800'
+      'https://ak-d.tripcdn.com/images/t1/hotel/1103000/1102203/1e8b3ca0e7284d04bfb0ef0f9b400fb2_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/200k160000010bdq9E907_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0221g12000kzw4u5vC1FE_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/200k160000010bdq9E907_R_600_400_R5.webp'
     ],
     amenities: ['Private Beach', 'Overwater Villas', 'Spa', 'Marine Reserve', 'Fine Dining', 'Yoga', 'Diving'],
     roomTypes: [
@@ -1086,7 +1098,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 115,
         amenities: ['Private Pool', 'Rainforest Views', 'Outdoor Shower', 'Butler Service'],
-        image: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800',
+        image: 'https://ak-d.tripcdn.com/images/200k160000010bdq9E907_R_400_200_R5.webp',
         available: 8
       },
       {
@@ -1097,7 +1109,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 130,
         amenities: ['Ocean Views', 'Private Pool', 'Outdoor Bathtub', 'Butler Service'],
-        image: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800',
+        image: 'https://ak-d.tripcdn.com/images/200i1600000105zum31AA_R_690_360_R5.webp',
         available: 6
       },
       {
@@ -1108,7 +1120,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 145,
         amenities: ['Ocean Views', 'Private Deck', 'Glass Floor', 'Direct Ocean Access'],
-        image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0224512000cana4t445DA_R_690_360_R5.webp',
         available: 4
       },
       {
@@ -1119,7 +1131,7 @@ export const hotels: Hotel[] = [
         beds: '2 King Beds',
         size: 280,
         amenities: ['Private Beach', 'Infinity Pool', 'Personal Chef', 'Spa Treatment Room', 'Private Boat'],
-        image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0224k12000kzw4v0hED5D_R_690_360_R5.webp',
         available: 2
       }
     ],
@@ -1138,9 +1150,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800'
+      'https://ak-d.tripcdn.com/images/1mc3e12000jedfpvvBC81_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc3j12000jed90x2BBB1_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc3712000jed9bk7246E_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc2t12000jed97mk6CD7_R_600_400_R5.webp'
     ],
     amenities: ['Private Beach', 'Pool', 'Spa', 'Water Sports', 'Restaurant', 'Diving Center', 'Sunset Bar'],
     roomTypes: [
@@ -1152,7 +1165,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 40,
         amenities: ['Garden View', 'Private Terrace', 'Air Conditioning', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc3t12000jedke7i20F3_R_400_200_R5.webp',
         available: 10
       },
       {
@@ -1163,7 +1176,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 55,
         amenities: ['Beachfront', 'Private Terrace', 'Outdoor Shower', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc2512000jedhlbs5D0D_R_690_360_R5.webp',
         available: 6
       },
       {
@@ -1174,7 +1187,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 85,
         amenities: ['Private Pool', 'Ocean View', 'Butler Service', 'Jacuzzi'],
-        image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc6d12000jedk3f33C8C_R_690_360_R5.webp',
         available: 4
       }
     ],
@@ -1193,9 +1206,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800'
+      'https://ak-d.tripcdn.com/images/0204p120008ceoioq9C05_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0205k1200099egtfgB8E7_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/200a0u000000iwbffEB20_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0221e120009thnzfa8E18_R_600_400_R5.webp'
     ],
     amenities: ['Private Beach', 'Restaurant', 'Beach Bar', 'Kayaks', 'Snorkeling', 'Eco Tours'],
     roomTypes: [
@@ -1207,7 +1221,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 25,
         amenities: ['Garden View', 'Fan', 'Private Bathroom', 'Mosquito Net'],
-        image: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0206m120008cenvyrD22C_R_690_360_R5.webp',
         available: 12
       },
       {
@@ -1218,7 +1232,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 35,
         amenities: ['Beachfront', 'Air Conditioning', 'Private Terrace', 'Mini Fridge'],
-        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+        image: 'https://ak-d.tripcdn.com/images/020211200086sunmr9AF8_R_690_360_R5.webp',
         available: 8
       },
       {
@@ -1229,7 +1243,7 @@ export const hotels: Hotel[] = [
         beds: '1 King + 2 Singles',
         size: 50,
         amenities: ['Beach View', 'Air Conditioning', 'Living Area', 'Mini Kitchen'],
-        image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800',
+        image: 'https://ak-d.tripcdn.com/images/020341200099egypx3FD2_R_690_360_R5.webp',
         available: 4
       }
     ],
@@ -1248,9 +1262,10 @@ export const hotels: Hotel[] = [
     stars: 2,
     propertyType: 'Guesthouse',
     images: [
-      'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800',
-      'https://images.unsplash.com/photo-1520277739336-7bf67edfa768?w=800',
-      'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800'
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/223027811.jpg?k=59739551bfcc734d3932580b7c50e7f6cec20f25c745794de49d29284454f788&o=',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/152687931.jpg?k=f440001d46b0c63a384fef2981ad3c961185098bb41dacd0f5e8d1b276b29501&o=',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/433148230.jpg?k=b499a8d404839bdd84a080147a5fe2a57fee3f9e344c265c051abc514a499d97&o=',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/222765803.jpg?k=b97c035057d8c373b5608c3313b073ded584d17d4c777a62ba9cfab7b6436099&o='
     ],
     amenities: ['Beach Bar', 'Restaurant', 'Water Sports', 'Parties', 'Free WiFi', 'Boat Transfers'],
     roomTypes: [
@@ -1262,7 +1277,7 @@ export const hotels: Hotel[] = [
         beds: '1 Bunk Bed',
         size: 6,
         amenities: ['Shared Bathroom', 'Fan', 'Locker', 'Beach Access'],
-        image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/223030286.jpg?k=315f21b650e153d438cbda4c88fb70cd8c88cac5f73610a392a4e3d6a0ac0170&o=',
         available: 20
       },
       {
@@ -1273,7 +1288,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 18,
         amenities: ['Beach View', 'Fan', 'Private Bathroom', 'Mosquito Net'],
-        image: 'https://images.unsplash.com/photo-1520277739336-7bf67edfa768?w=800',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/223030286.jpg?k=315f21b650e153d438cbda4c88fb70cd8c88cac5f73610a392a4e3d6a0ac0170&o=',
         available: 10
       },
       {
@@ -1284,7 +1299,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 25,
         amenities: ['Beachfront', 'Air Conditioning', 'Private Bathroom', 'Terrace'],
-        image: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800',
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/223030286.jpg?k=315f21b650e153d438cbda4c88fb70cd8c88cac5f73610a392a4e3d6a0ac0170&o=',
         available: 6
       }
     ],
@@ -1305,9 +1320,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Boutique',
     images: [
-      'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=800',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800'
+      'https://ak-d.tripcdn.com/images/0584412000nd99xfv722D_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0581u12000nd99vkdF931_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0226r12000nl8fo7u9C44_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/02X17120008u7cp9gADE0_R_600_400_R5.webp'
     ],
     amenities: ['Rooftop Bar', 'Restaurant', 'River Views', 'Free WiFi', 'Tours', 'Bicycle Rental'],
     roomTypes: [
@@ -1319,7 +1335,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 22,
         amenities: ['Air Conditioning', 'Private Bathroom', 'TV', 'Safe'],
-        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0220c12000kz33u7u2381_R_200_100_R5.webp',
         available: 8
       },
       {
@@ -1330,7 +1346,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 28,
         amenities: ['River View', 'Balcony', 'Air Conditioning', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0224412000nm9z4msA5E1_R_200_100_R5.webp',
         available: 6
       },
       {
@@ -1341,7 +1357,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 42,
         amenities: ['Panoramic River View', 'Living Area', 'Bathtub', 'Private Balcony'],
-        image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0220c12000kz33u7u2381_R_200_100_R5.webp',
         available: 3
       }
     ],
@@ -1360,9 +1376,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Boutique',
     images: [
-      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800',
-      'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800'
+      'https://ak-d.tripcdn.com/images/0223y12000pwqinwo64A3_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0224h12000l78jz7d0505_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0226u12000l78k0xjB24F_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0225812000l78jodbEB5B_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'Restaurant', 'Bar', 'Free WiFi', 'Colonial Architecture', 'Garden'],
     roomTypes: [
@@ -1374,7 +1391,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 28,
         amenities: ['Colonial Style', 'Air Conditioning', 'Safe', 'Coffee Maker'],
-        image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0225012000l0p785nA379_R_600_400_R5.webp',
         available: 6
       },
       {
@@ -1385,7 +1402,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 35,
         amenities: ['Pool View', 'Balcony', 'Air Conditioning', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0223712000l0audgl7827_R_200_100_R5.webp',
         available: 5
       },
       {
@@ -1396,7 +1413,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 55,
         amenities: ['Garden View', 'Living Room', 'Bathtub', 'Private Terrace'],
-        image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0225912000k2i2ykoD134_R_200_100_R5.webp',
         available: 2
       }
     ],
@@ -1415,9 +1432,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800'
+      'https://ak-d.tripcdn.com/images/0220k12000pweapjk0815_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc3h12000ok5ivv9E568_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc0j12000ok4y22s6DE9_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/020461200086g4qpp46E4_R_600_400_R5.webp'
     ],
     amenities: ['Beach Access', 'Pool', 'Restaurant', 'Free WiFi', 'Crab Market Tours', 'Kayaks'],
     roomTypes: [
@@ -1429,7 +1447,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 25,
         amenities: ['Garden View', 'Air Conditioning', 'Private Bathroom', 'Terrace'],
-        image: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc2012000ok4tqjqD2EF_R_200_100_R5.webp',
         available: 8
       },
       {
@@ -1440,7 +1458,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 32,
         amenities: ['Sea View', 'Balcony', 'Air Conditioning', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0226d12000pwebc0i3C74_R_200_100_R5.webp',
         available: 5
       },
       {
@@ -1451,7 +1469,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 48,
         amenities: ['Beach Access', 'Private Pool', 'Outdoor Shower', 'Living Area'],
-        image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc6p12000ok5cilkBDFE_R_200_100_R5.webp',
         available: 3
       }
     ],
@@ -1470,9 +1488,10 @@ export const hotels: Hotel[] = [
     stars: 1,
     propertyType: 'Guesthouse',
     images: [
-      'https://images.unsplash.com/photo-1528127269322-539801943592?w=800',
-      'https://images.unsplash.com/photo-1504858700536-882c978a3464?w=800',
-      'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800'
+      'https://ak-d.tripcdn.com/images/1ik4912000lzdey3hC657_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1ik3a12000mgeg6x9A5B8_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0581a12000jrx5wb26C69_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1ik6n12000mrjwpkrC46A_R_600_400_R5.webp'
     ],
     amenities: ['River Swimming', 'Bar', 'Restaurant', 'Free WiFi', 'Fire Shows', 'Live Music'],
     roomTypes: [
@@ -1484,7 +1503,7 @@ export const hotels: Hotel[] = [
         beds: '1 Bunk Bed',
         size: 5,
         amenities: ['Shared Bathroom', 'Fan', 'Locker', 'River Views'],
-        image: 'https://images.unsplash.com/photo-1504858700536-882c978a3464?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1ik3y12000mp9crybA84C_R_600_400_R5.webp',
         available: 30
       },
       {
@@ -1495,7 +1514,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 12,
         amenities: ['Fan', 'Private Bathroom', 'River View'],
-        image: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1ik0x12000mkrcopnECF8_R_600_400_R5.webp',
         available: 8
       },
       {
@@ -1506,7 +1525,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 15,
         amenities: ['Air Conditioning', 'Private Bathroom', 'River View', 'Balcony'],
-        image: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1ik5612000mpam42mD68D_R_600_400_R5.webp',
         available: 4
       }
     ],
@@ -1527,9 +1546,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800'
+      'https://ak-d.tripcdn.com/images/0221g12000klum248FBC7_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0224p12000l0dugtoD066_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0583712000hql78pxA6DA_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0580b12000l7f0rb77D1E_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'Restaurant', 'Bicycle Rental', 'Cooking Class', 'Free WiFi', 'Village Tours'],
     roomTypes: [
@@ -1541,7 +1561,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 32,
         amenities: ['Garden View', 'Air Conditioning', 'Private Bathroom', 'Safe'],
-        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0221n12000l0du69fEC6E_R_690_360_R5.webp',
         available: 8
       },
       {
@@ -1552,7 +1572,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 40,
         amenities: ['Pool View', 'Balcony', 'Air Conditioning', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0224p12000l0dugtoD066_R_690_360_R5.webp',
         available: 6
       },
       {
@@ -1563,7 +1583,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 55,
         amenities: ['Pool Access', 'Private Terrace', 'Bathtub', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0223k12000lxf5r96B099_R_600_400_R5.webp',
         available: 3
       }
     ],
@@ -1582,9 +1602,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Boutique',
     images: [
-      'https://images.unsplash.com/photo-1528181304800-259b08848526?w=800',
-      'https://images.unsplash.com/photo-1561501900-3701fa6a0864?w=800',
-      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800'
+      'https://ak-d.tripcdn.com/images/1mc0v12000m1r9c6v93ED_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc3c12000m1qmkm505A6_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc0l12000m0mag38ACE1_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc7212000m0madhs4C66_R_600_400_R5.webp'
     ],
     amenities: ['Pool', 'Heritage Tours', 'Restaurant', 'Bicycle Rental', 'Free WiFi', 'Organic Garden'],
     roomTypes: [
@@ -1596,7 +1617,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 28,
         amenities: ['Traditional Design', 'Air Conditioning', 'Garden View', 'Safe'],
-        image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc5612000m0olp8d5AC4_R_690_360_R5.webp',
         available: 6
       },
       {
@@ -1607,7 +1628,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 35,
         amenities: ['Private Terrace', 'Air Conditioning', 'Mini Bar', 'Outdoor Shower'],
-        image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc1j12000m1qqijl6529_R_690_360_R5.webp',
         available: 4
       },
       {
@@ -1618,7 +1639,7 @@ export const hotels: Hotel[] = [
         beds: '1 King + 2 Singles',
         size: 65,
         amenities: ['Entire Wooden House', 'Private Garden', 'Kitchen', 'Living Area'],
-        image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc6912000m0m7od1B8F3_R_690_360_R5.webp',
         available: 2
       }
     ],
@@ -1637,9 +1658,10 @@ export const hotels: Hotel[] = [
     stars: 2,
     propertyType: 'Guesthouse',
     images: [
-      'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800',
-      'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=800',
-      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800'
+      'https://ak-d.tripcdn.com/images/020721200098xdwhuC23C_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc6v12000cl6kqu45BEF_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/02X5a120009iu31nh26DF_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0205k1200099esx014A21_R_600_400_R5.webp'
     ],
     amenities: ['Free Breakfast', 'Free WiFi', 'Tours', 'Bicycle Rental', 'Laundry', 'Travel Desk'],
     roomTypes: [
@@ -1651,7 +1673,7 @@ export const hotels: Hotel[] = [
         beds: '1 Bunk Bed',
         size: 5,
         amenities: ['Shared Bathroom', 'Fan', 'Locker'],
-        image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc3j12000cl6hsgs6C42_R_690_360_R5.webp',
         available: 12
       },
       {
@@ -1662,7 +1684,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 14,
         amenities: ['Fan', 'Private Bathroom', 'Hot Water'],
-        image: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc2b12000cl6e9fg2F72_R_690_360_R5.webp',
         available: 6
       },
       {
@@ -1673,7 +1695,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 16,
         amenities: ['Air Conditioning', 'Private Bathroom', 'TV', 'Hot Water'],
-        image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800',
+        image: 'https://ak-d.tripcdn.com/images/020171200099es6vg4F82_R_690_360_R5.webp',
         available: 8
       },
       {
@@ -1684,7 +1706,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double + 2 Singles',
         size: 24,
         amenities: ['Air Conditioning', 'Private Bathroom', 'TV', 'Balcony'],
-        image: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc6v12000cl6kqu45BEF_R_690_360_R5.webp',
         available: 3
       }
     ],
@@ -1705,9 +1727,10 @@ export const hotels: Hotel[] = [
     stars: 5,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800'
+      'https://ak-d.tripcdn.com/images/200r0v000000jkq5kF7C7_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0205c120008azdz33F293_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc3d12000cw7m50p2D4D_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0586n12000lk5vm6hE72E_R_600_400_R5.webp'
     ],
     amenities: ['Saltwater Pool', 'Sailing Club', 'Spa', 'Fine Dining', 'Yoga', 'Cooking Class'],
     roomTypes: [
@@ -1719,7 +1742,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 35,
         amenities: ['Ocean View', 'Terrace', 'Air Conditioning', 'Safe'],
-        image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0221h120009zraxdz5C8F_R_690_360_R5.webp',
         available: 5
       }
     ],
@@ -1738,8 +1761,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800'
+      'https://ak-d.tripcdn.com/images/1mc3d12000ag4p0yiDC10_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0203l1200082kc6ro8030_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc1c12000meubhaj51D2_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0227312000l1qh697CE5A_R_600_400_R5.webp'
     ],
     amenities: ['2 Pools', 'Bakery', 'Sky Bar', 'Nature Trails', 'Free WiFi'],
     roomTypes: [
@@ -1751,7 +1776,7 @@ export const hotels: Hotel[] = [
         beds: '1 Queen Bed',
         size: 30,
         amenities: ['Mountain View', 'Private Balcony', 'AC', 'Mini Bar'],
-        image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc3s12000mbzjjxi86FC_R_690_360_R5.webp',
         available: 8
       }
     ],
@@ -1772,8 +1797,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Glamping',
     images: [
-      'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800',
-      'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800'
+      'https://ak-d.tripcdn.com/images/0224n12000cu9pxbaB15F_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0220612000kvygev9B648_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0224w12000kvygmk7FD49_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1ik0v12000o5nezz66D3C_R_600_400_R5.webp'
     ],
     amenities: ['River Kayaking', 'Waterfall Tours', 'Restaurant', 'Private Deck', 'Eco-Friendly'],
     roomTypes: [
@@ -1785,7 +1812,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 45,
         amenities: ['River View', 'Private Deck', 'Fan', 'Safe'],
-        image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800',
+        image: 'https://ak-d.tripcdn.com/images/0224n12000cu9pxbaB15F_R_600_400_R5.webp',
         available: 12
       }
     ],
@@ -1806,8 +1833,10 @@ export const hotels: Hotel[] = [
     stars: 4,
     propertyType: 'Resort',
     images: [
-      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800'
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/c2/2b/03/mayura-hill-resort.jpg?w=700&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/5a/9b/3e/mayura-hill-resort.jpg?w=900&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/5a/9c/97/mayura-hill-resort.jpg?w=900&h=-1&s=1',
+      'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/c2/2a/fb/mayura-hill-resort.jpg?w=700&h=-1&s=1'
     ],
     amenities: ['Pool', 'Gym', 'Restaurant', 'Zip Line', 'Elephant Tours'],
     roomTypes: [
@@ -1819,7 +1848,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 50,
         amenities: ['Mountain View', 'Jacuzzi', 'AC', 'Terrace'],
-        image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800',
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/c2/2a/ff/mayura-hill-resort.jpg?w=700&h=-1&s=1',
         available: 6
       }
     ],
@@ -1840,8 +1869,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Lodge',
     images: [
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
-      'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800'
+      'https://ak-d.tripcdn.com/images/0224112000kz1de0d1917_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0220e12000l1a0hfv5716_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0226i120009zrbii82FB3_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0585l12000mfbgnf492FC_R_600_400_R5.webp'
     ],
     amenities: ['Lake View', 'Pool', 'Restaurant', 'Spa', 'Trekking Guides'],
     roomTypes: [
@@ -1853,7 +1884,7 @@ export const hotels: Hotel[] = [
         beds: '1 Double Bed',
         size: 28,
         amenities: ['Garden View', 'AC', 'Private Bathroom'],
-        image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1ik4512000o2qw4mk408B_R_200_100_R5.webp',
         available: 10
       }
     ],
@@ -1874,8 +1905,10 @@ export const hotels: Hotel[] = [
     stars: 3,
     propertyType: 'Hotel',
     images: [
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
-      'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800'
+      'https://ak-d.tripcdn.com/images/1mc3g12000pplqz9r570A_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/0223s12000m4b7tovE161_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc3b12000bzeb2oa34D5_R_600_400_R5.webp',
+      'https://ak-d.tripcdn.com/images/1mc0x12000ppkg2280FD8_R_600_400_R5.webp'
     ],
     amenities: ['Sky Bar', 'River View', 'Conference Room', 'Spa', 'Free WiFi'],
     roomTypes: [
@@ -1887,7 +1920,7 @@ export const hotels: Hotel[] = [
         beds: '1 King Bed',
         size: 32,
         amenities: ['River View', 'AC', 'TV', 'Fridge'],
-        image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
+        image: 'https://ak-d.tripcdn.com/images/1mc5r12000ps9gqe3843B_R_200_100_R5.webp',
         available: 15
       }
     ],
