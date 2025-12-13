@@ -33,6 +33,8 @@ const SearchResults = () => {
     paymentTypes: [] as string[],
   });
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   const filteredHotels = useMemo(() => {
     // Start with province/location filter
     let results = filters.province
@@ -191,55 +193,48 @@ const SearchResults = () => {
 
               <div className="flex items-center gap-3">
                 {/* Mobile Filter Button */}
-                const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-                // ... (existing code)
-
-                <div className="flex items-center gap-3">
-                  {/* Mobile Filter Button */}
-                  <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
-                    <SheetTrigger asChild>
-                      <Button variant="outline" className="gap-2 lg:hidden">
-                        <SlidersHorizontal className="h-4 w-4" />
-                        Filters
-                        {hasActiveFilters && (
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
-                            !
-                          </span>
-                        )}
-                      </Button>
-                    </SheetTrigger>
-                    <SheetContent side="left" className="w-full max-w-sm p-0">
-                      <div className="h-full overflow-y-auto">
-                        <FilterSidebar
-                          onFiltersChange={setFilters}
-                          onClose={() => setIsFilterOpen(false)}
-                          isMobile
-                          initialProvince={locationQuery}
-                        />
-                      </div>
-                    </SheetContent>
-                  </Sheet>
-
-                  {/* View Toggle */}
-                  <div className="hidden items-center gap-1 rounded-lg border border-border p-1 md:flex">
-                    <Button
-                      variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
-                      size="icon"
-                      className="h-8 w-8"
-                      onClick={() => setViewMode('grid')}
-                    >
-                      <Grid className="h-4 w-4" />
+                <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
+                  <SheetTrigger asChild>
+                    <Button variant="outline" className="gap-2 lg:hidden">
+                      <SlidersHorizontal className="h-4 w-4" />
+                      Filters
+                      {hasActiveFilters && (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
+                          !
+                        </span>
+                      )}
                     </Button>
-                    <Button
-                      variant={viewMode === 'list' ? 'secondary' : 'ghost'}
-                      size="icon"
-                      className="h-8 w-8"
-                      onClick={() => setViewMode('list')}
-                    >
-                      <List className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="w-full max-w-sm p-0">
+                    <div className="h-full overflow-y-auto">
+                      <FilterSidebar
+                        onFiltersChange={setFilters}
+                        onClose={() => setIsFilterOpen(false)}
+                        isMobile
+                        initialProvince={locationQuery}
+                      />
+                    </div>
+                  </SheetContent>
+                </Sheet>
+
+                {/* View Toggle */}
+                <div className="hidden items-center gap-1 rounded-lg border border-border p-1 md:flex">
+                  <Button
+                    variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={() => setViewMode('grid')}
+                  >
+                    <Grid className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant={viewMode === 'list' ? 'secondary' : 'ghost'}
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={() => setViewMode('list')}
+                  >
+                    <List className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
 
@@ -353,7 +348,8 @@ const SearchResults = () => {
           </DialogContent>
         </Dialog>
       </div>
-      );
+    </div>
+  );
 };
 
-      export default SearchResults;
+export default SearchResults;
