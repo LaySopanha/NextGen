@@ -219,7 +219,14 @@ const HotelMarker = ({
                                 </div>
                                 <p className="text-[9px] text-slate-300 leading-none mt-1">Includes taxes</p>
                             </div>
-                            <Button size="sm" className="h-7 text-xs px-3 font-bold bg-blue-600 hover:bg-blue-700 shadow-sm">
+                            <Button
+                                size="sm"
+                                className="h-7 text-xs px-3 font-bold bg-blue-600 hover:bg-blue-700 shadow-sm"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    window.location.href = `/hotel/${hotel.id}`;
+                                }}
+                            >
                                 View Deal
                             </Button>
                         </div>
