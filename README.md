@@ -1,73 +1,30 @@
-# Welcome to your Lovable project
+# NextGen Travel Booking Demo
 
-## Project info
+Front-end demo for a Cambodia-focused travel marketplace. The experience showcases a modern booking flow: destination discovery, hotel search with filters and map view, offer detail pages, a checkout mock, and an owner dashboard preview. All data is static and intended for prototyping and design review.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Live demo:** https://next-gen-rouge.vercel.app/
 
-## How can I edit this code?
+## Highlights
+- Destination, hotel, and offer browsing with hero storytelling tailored to Cambodia.
+- Search with filters (price, amenities, rating, property type), list/grid toggle, and optional map view (Leaflet).
+- Hotel detail, booking, checkout, and My Bookings mock journeys with toast/sonner notifications.
+- Owner and host tooling previews (List Property, Owner Dashboard, support flows).
+- Responsive, mobile-first UI built with shadcn/ui components and Tailwind utility styling.
 
-There are several ways of editing your application.
+## Tech Stack
+- ⚡ Vite + TypeScript
+- ⚛️ React 18 with React Router
+- 🎨 Tailwind CSS + shadcn/ui (Radix primitives)
+- 📦 React Query for client-side state/caching
+- 🗺️ Leaflet via `react-leaflet` for maps
+- ▲ Vercel for hosting the live demo
 
-**Use Lovable**
+## Project Structure
+- `src/pages` – route-level pages (landing, search, destinations, offers, booking/checkout, owner flows)
+- `src/components` – shared UI (header, search bar, hotel cards, filters, maps, layout)
+- `src/data/hotels.ts` – seeded hotel, destination, and offer data powering the demo
+- `public` – static assets
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Notes
+- Booking, authentication, and payments are mocked for demonstration; no backend services are wired.
+- Map tiles load from Leaflet defaults; adjust for production usage as needed.
